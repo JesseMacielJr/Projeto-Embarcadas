@@ -1,0 +1,202 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"15 ./lcd.h
+[; ;./lcd.h: 15: void lcd_cmd(unsigned char val);
+[v _lcd_cmd `(v ~T0 @X0 0 ef1`uc ]
+"17
+[; ;./lcd.h: 17: void lcd_str(const char* str);
+[v _lcd_str `(v ~T0 @X0 0 ef1`*Cuc ]
+"4 ./delay.h
+[; ;./delay.h: 4: void atraso_ms(int t);
+[v _atraso_ms `(v ~T0 @X0 0 ef1`i ]
+"113 D:\Programs\Microship\xc8\v2.20\pic\include\c99\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"8 encher.c
+[; ;encher.c: 8: void encher_tanque(double *vol) {
+[v _encher_tanque `(v ~T0 @X0 1 ef1`*d ]
+{
+[e :U _encher_tanque ]
+[v _vol `*d ~T0 @X0 1 r1 ]
+[f ]
+"11
+[; ;encher.c: 11:     lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"12
+[; ;encher.c: 12:     lcd_cmd(0x80);
+[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
+"13
+[; ;encher.c: 13:     lcd_str("Quant(L): ");
+[e ( _lcd_str (1 :s 1C ]
+"14
+[; ;encher.c: 14:     lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"15
+[; ;encher.c: 15:     lcd_str("RB1-voltar");
+[e ( _lcd_str (1 :s 2C ]
+"16
+[; ;encher.c: 16:     lcd_cmd(0x80 +10);
+[e ( _lcd_cmd (1 -> + -> 128 `i -> 10 `i `uc ]
+"17
+[; ;encher.c: 17:     atraso_ms(1000);
+[e ( _atraso_ms (1 -> 1000 `i ]
+"19
+[; ;encher.c: 19:     double incremento = 10;
+[v _incremento `d ~T0 @X0 1 a ]
+[e = _incremento -> -> 10 `i `d ]
+"21
+[; ;encher.c: 21:     if (*vol + incremento > 70) {
+[e $ ! > + *U _vol _incremento -> -> 70 `i `d 4  ]
+{
+"24
+[; ;encher.c: 24:         lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"25
+[; ;encher.c: 25:         lcd_cmd(0x80);
+[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
+"26
+[; ;encher.c: 26:         lcd_str("ERRO: vol > MAX");
+[e ( _lcd_str (1 :s 3C ]
+"27
+[; ;encher.c: 27:         lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"28
+[; ;encher.c: 28:         lcd_str("RB1-Voltar");
+[e ( _lcd_str (1 :s 4C ]
+"34
+[; ;encher.c: 34:     } else {
+}
+[e $U 5  ]
+[e :U 4 ]
+{
+"36
+[; ;encher.c: 36:         *vol += incremento;
+[e =+ *U _vol _incremento ]
+"37
+[; ;encher.c: 37:         char y[8];
+[v _y `uc ~T0 @X0 -> 8 `i a ]
+"38
+[; ;encher.c: 38:         sprintf(y, "%.1f", *vol);
+[e ( _sprintf (1 , (. , &U _y :s 5C *U _vol ]
+"39
+[; ;encher.c: 39:         lcd_str(y);
+[e ( _lcd_str (1 -> &U _y `*Cuc ]
+"40
+[; ;encher.c: 40:         lcd_str(" L");
+[e ( _lcd_str (1 :s 6C ]
+"43
+[; ;encher.c: 43:         int tempo = incremento / 2;
+[v _tempo `i ~T0 @X0 1 a ]
+[e = _tempo -> / _incremento -> -> 2 `i `d `i ]
+"44
+[; ;encher.c: 44:         int i;
+[v _i `i ~T0 @X0 1 a ]
+[v F342 `i ~T0 @X0 -> 10 `i s ]
+[i F342
+:U ..
+"45
+[; ;encher.c: 45:         int numeros[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D,
+-> 63 `i
+-> 6 `i
+-> 91 `i
+-> 79 `i
+-> 102 `i
+-> 109 `i
+-> 125 `i
+-> 7 `i
+-> 127 `i
+-> 111 `i
+..
+]
+[v _numeros `i ~T0 @X0 -> 10 `i a ]
+[e = _numeros F342 ]
+"48
+[; ;encher.c: 48:         (*(volatile __near unsigned char*)0xF92) = 0x00;
+[e = *U -> -> 3986 `i `*VNuc -> -> 0 `i `uc ]
+"49
+[; ;encher.c: 49:         (((*(volatile __near unsigned char*)0xF80)) |= (1<<5));
+[e =| *U -> -> 3968 `i `*VNuc -> << -> 1 `i -> 5 `i `uc ]
+"54
+[; ;encher.c: 54:         lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"55
+[; ;encher.c: 55:         lcd_cmd(0x80);
+[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
+"56
+[; ;encher.c: 56:         lcd_str("Enchendo...");
+[e ( _lcd_str (1 :s 7C ]
+"57
+[; ;encher.c: 57:         lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"58
+[; ;encher.c: 58:         lcd_str("Aguarde!");
+[e ( _lcd_str (1 :s 8C ]
+"65
+[; ;encher.c: 65:         for (i = tempo; i >= 0; i--) {
+{
+[e = _i _tempo ]
+[e $ >= _i -> 0 `i 6  ]
+[e $U 7  ]
+[e :U 6 ]
+{
+"66
+[; ;encher.c: 66:             (*(volatile __near unsigned char*)0xF83) = numeros[i];
+[e = *U -> -> 3971 `i `*VNuc -> *U + &U _numeros * -> -> _i `ui `ux -> -> # *U &U _numeros `ui `ux `uc ]
+"67
+[; ;encher.c: 67:             atraso_ms(1000);
+[e ( _atraso_ms (1 -> 1000 `i ]
+"68
+[; ;encher.c: 68:         }
+}
+[e -- _i -> 1 `i ]
+[e $ >= _i -> 0 `i 6  ]
+[e :U 7 ]
+}
+"69
+[; ;encher.c: 69:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 5 `i `uc ]
+"72
+[; ;encher.c: 72:         lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"73
+[; ;encher.c: 73:         lcd_cmd(0x80);
+[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
+"74
+[; ;encher.c: 74:         lcd_str("    SUCESSO!");
+[e ( _lcd_str (1 :s 9C ]
+"75
+[; ;encher.c: 75:         lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"76
+[; ;encher.c: 76:         lcd_str("   RB1-Voltar");
+[e ( _lcd_str (1 :s 10C ]
+"84
+[; ;encher.c: 84:     }
+}
+[e :U 5 ]
+"94
+[; ;encher.c: 94:     while(((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))){
+[e $U 9  ]
+[e :U 10 ]
+{
+"95
+[; ;encher.c: 95:     }
+}
+[e :U 9 ]
+"94
+[; ;encher.c: 94:     while(((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))){
+[e $ != & -> *U -> -> 3969 `i `*VNuc `i << -> 1 `i -> 1 `i -> 0 `i 10  ]
+[e :U 11 ]
+"97
+[; ;encher.c: 97: }
+[e :UE 3 ]
+}
+[p f _sprintf 8462336 ]
+[a 2C 82 66 49 45 118 111 108 116 97 114 0 ]
+[a 10C 32 32 32 82 66 49 45 86 111 108 116 97 114 0 ]
+[a 4C 82 66 49 45 86 111 108 116 97 114 0 ]
+[a 5C 37 46 49 102 0 ]
+[a 3C 69 82 82 79 58 32 118 111 108 32 62 32 77 65 88 0 ]
+[a 6C 32 76 0 ]
+[a 7C 69 110 99 104 101 110 100 111 46 46 46 0 ]
+[a 8C 65 103 117 97 114 100 101 33 0 ]
+[a 9C 32 32 32 32 83 85 67 69 83 83 79 33 0 ]
+[a 1C 81 117 97 110 116 40 76 41 58 32 0 ]
