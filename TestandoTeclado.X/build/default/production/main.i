@@ -98,42 +98,47 @@ void main() {
     lcd_str("Vazao: 1.5 L/s");
     atraso_ms(2000);
     lcd_cmd(0x01);
-comeco:
 
-    lcd_cmd(0x01);
-    lcd_cmd(0x80);
-    lcd_str("RB3-Ver RB4-Encher");
-    lcd_cmd(0xC0);
-    lcd_str("RB5-Retirar");
-    for (i = 0; i < 2; i++) {
-        atraso_ms(350);
-        lcd_cmd(0x18);
-    }
-    for (i = 0; i < 2; i++) {
-        atraso_ms(350);
-        lcd_cmd(0x1C);
-    }
+    int flag = 0;
 
-
-    (*(volatile __near unsigned char*)0xF93) = 0xF8;
-    (*(volatile __near unsigned char*)0xF92) = 0x20;
-    (*(volatile __near unsigned char*)0xF93) = 0x3F;
-    (*(volatile __near unsigned char*)0xF92) = 0x20;
-    (*(volatile __near unsigned char*)0xF93) = 0x3F;
-    (*(volatile __near unsigned char*)0xF96) = 0x00;
-# 75 "main.c"
     while (1) {
-        if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))) {
-            goto comeco;
+
+        flag = 0;
+        lcd_cmd(0x01);
+        lcd_cmd(0x80);
+        lcd_str("RB3-Ver RB4-Encher");
+        lcd_cmd(0xC0);
+        lcd_str("RB5-Retirar");
+        for (i = 0; i < 2; i++) {
+            atraso_ms(350);
+            lcd_cmd(0x18);
         }
-        if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<3)))) {
-            ver_quantidade(&volume);
+        for (i = 0; i < 2; i++) {
+            atraso_ms(350);
+            lcd_cmd(0x1C);
         }
-        if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<4)))) {
-            encher_tanque(&volume);
-        }
-        if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<5)))) {
-            esvaziar_tanque(&volume);
+
+
+        (*(volatile __near unsigned char*)0xF93) = 0xF8;
+        (*(volatile __near unsigned char*)0xF92) = 0x20;
+        (*(volatile __near unsigned char*)0xF93) = 0x3F;
+        (*(volatile __near unsigned char*)0xF92) = 0x20;
+        (*(volatile __near unsigned char*)0xF93) = 0x3F;
+        (*(volatile __near unsigned char*)0xF96) = 0x00;
+# 78 "main.c"
+        while (1) {
+            if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))) {
+                break;
+            }
+            else if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<3)))) {
+                ver_quantidade(&volume);
+            }
+            else if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<4)))) {
+                encher_tanque(&volume);
+            }
+            else if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<5)))) {
+                esvaziar_tanque(&volume);
+            }
         }
     }
 }

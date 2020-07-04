@@ -119,140 +119,160 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40
 [; ;main.c: 40:     lcd_cmd(0x01);
 [e ( _lcd_cmd (1 -> -> 1 `i `uc ]
-"41
-[; ;main.c: 41: comeco:
-[e :U 2 ]
-"43
-[; ;main.c: 43:     lcd_cmd(0x01);
-[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"42
+[; ;main.c: 42:     int flag = 0;
+[v _flag `i ~T0 @X0 1 a ]
+[e = _flag -> 0 `i ]
 "44
-[; ;main.c: 44:     lcd_cmd(0x80);
-[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
-"45
-[; ;main.c: 45:     lcd_str("RB3-Ver RB4-Encher");
-[e ( _lcd_str (1 :s 5C ]
-"46
-[; ;main.c: 46:     lcd_cmd(0xC0);
-[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
-"47
-[; ;main.c: 47:     lcd_str("RB5-Retirar");
-[e ( _lcd_str (1 :s 6C ]
-"48
-[; ;main.c: 48:     for (i = 0; i < 2; i++) {
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 2 `i 3  ]
-[e $U 4  ]
+[; ;main.c: 44:     while (1) {
 [e :U 3 ]
 {
+"46
+[; ;main.c: 46:         flag = 0;
+[e = _flag -> 0 `i ]
+"47
+[; ;main.c: 47:         lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"48
+[; ;main.c: 48:         lcd_cmd(0x80);
+[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
 "49
-[; ;main.c: 49:         atraso_ms(350);
-[e ( _atraso_ms (1 -> 350 `i ]
+[; ;main.c: 49:         lcd_str("RB3-Ver RB4-Encher");
+[e ( _lcd_str (1 :s 5C ]
 "50
-[; ;main.c: 50:         lcd_cmd(0x18);
-[e ( _lcd_cmd (1 -> -> 24 `i `uc ]
+[; ;main.c: 50:         lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
 "51
-[; ;main.c: 51:     }
-}
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 2 `i 3  ]
-[e :U 4 ]
-}
+[; ;main.c: 51:         lcd_str("RB5-Retirar");
+[e ( _lcd_str (1 :s 6C ]
 "52
-[; ;main.c: 52:     for (i = 0; i < 2; i++) {
+[; ;main.c: 52:         for (i = 0; i < 2; i++) {
 {
 [e = _i -> 0 `i ]
-[e $ < _i -> 2 `i 6  ]
-[e $U 7  ]
-[e :U 6 ]
+[e $ < _i -> 2 `i 5  ]
+[e $U 6  ]
+[e :U 5 ]
 {
 "53
-[; ;main.c: 53:         atraso_ms(350);
+[; ;main.c: 53:             atraso_ms(350);
 [e ( _atraso_ms (1 -> 350 `i ]
 "54
-[; ;main.c: 54:         lcd_cmd(0x1C);
-[e ( _lcd_cmd (1 -> -> 28 `i `uc ]
+[; ;main.c: 54:             lcd_cmd(0x18);
+[e ( _lcd_cmd (1 -> -> 24 `i `uc ]
 "55
-[; ;main.c: 55:     }
+[; ;main.c: 55:         }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 2 `i 6  ]
-[e :U 7 ]
+[e $ < _i -> 2 `i 5  ]
+[e :U 6 ]
 }
+"56
+[; ;main.c: 56:         for (i = 0; i < 2; i++) {
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 2 `i 8  ]
+[e $U 9  ]
+[e :U 8 ]
+{
+"57
+[; ;main.c: 57:             atraso_ms(350);
+[e ( _atraso_ms (1 -> 350 `i ]
 "58
-[; ;main.c: 58:     (*(volatile __near unsigned char*)0xF93) = 0xF8;
-[e = *U -> -> 3987 `i `*VNuc -> -> 248 `i `uc ]
+[; ;main.c: 58:             lcd_cmd(0x1C);
+[e ( _lcd_cmd (1 -> -> 28 `i `uc ]
 "59
-[; ;main.c: 59:     (*(volatile __near unsigned char*)0xF92) = 0x20;
-[e = *U -> -> 3986 `i `*VNuc -> -> 32 `i `uc ]
-"60
-[; ;main.c: 60:     (*(volatile __near unsigned char*)0xF93) = 0x3F;
-[e = *U -> -> 3987 `i `*VNuc -> -> 63 `i `uc ]
-"61
-[; ;main.c: 61:     (*(volatile __near unsigned char*)0xF92) = 0x20;
-[e = *U -> -> 3986 `i `*VNuc -> -> 32 `i `uc ]
-"62
-[; ;main.c: 62:     (*(volatile __near unsigned char*)0xF93) = 0x3F;
-[e = *U -> -> 3987 `i `*VNuc -> -> 63 `i `uc ]
-"63
-[; ;main.c: 63:     (*(volatile __near unsigned char*)0xF96) = 0x00;
-[e = *U -> -> 3990 `i `*VNuc -> -> 0 `i `uc ]
-"75
-[; ;main.c: 75:     while (1) {
-[e :U 10 ]
-{
-"76
-[; ;main.c: 76:         if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))) {
-[e $ ! ! != & -> *U -> -> 3969 `i `*VNuc `i << -> 1 `i -> 1 `i -> 0 `i 12  ]
-{
-"77
-[; ;main.c: 77:             goto comeco;
-[e $U 2  ]
-"78
-[; ;main.c: 78:         }
+[; ;main.c: 59:         }
 }
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 2 `i 8  ]
+[e :U 9 ]
+}
+"62
+[; ;main.c: 62:         (*(volatile __near unsigned char*)0xF93) = 0xF8;
+[e = *U -> -> 3987 `i `*VNuc -> -> 248 `i `uc ]
+"63
+[; ;main.c: 63:         (*(volatile __near unsigned char*)0xF92) = 0x20;
+[e = *U -> -> 3986 `i `*VNuc -> -> 32 `i `uc ]
+"64
+[; ;main.c: 64:         (*(volatile __near unsigned char*)0xF93) = 0x3F;
+[e = *U -> -> 3987 `i `*VNuc -> -> 63 `i `uc ]
+"65
+[; ;main.c: 65:         (*(volatile __near unsigned char*)0xF92) = 0x20;
+[e = *U -> -> 3986 `i `*VNuc -> -> 32 `i `uc ]
+"66
+[; ;main.c: 66:         (*(volatile __near unsigned char*)0xF93) = 0x3F;
+[e = *U -> -> 3987 `i `*VNuc -> -> 63 `i `uc ]
+"67
+[; ;main.c: 67:         (*(volatile __near unsigned char*)0xF96) = 0x00;
+[e = *U -> -> 3990 `i `*VNuc -> -> 0 `i `uc ]
+"78
+[; ;main.c: 78:         while (1) {
 [e :U 12 ]
+{
 "79
-[; ;main.c: 79:         if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<3)))) {
-[e $ ! ! != & -> *U -> -> 3969 `i `*VNuc `i << -> 1 `i -> 3 `i -> 0 `i 13  ]
+[; ;main.c: 79:             if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))) {
+[e $ ! ! != & -> *U -> -> 3969 `i `*VNuc `i << -> 1 `i -> 1 `i -> 0 `i 14  ]
 {
 "80
-[; ;main.c: 80:             ver_quantidade(&volume);
-[e ( _ver_quantidade (1 &U _volume ]
+[; ;main.c: 80:                 break;
+[e $U 13  ]
 "81
-[; ;main.c: 81:         }
+[; ;main.c: 81:             }
 }
-[e :U 13 ]
+[e $U 15  ]
 "82
-[; ;main.c: 82:         if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<4)))) {
-[e $ ! ! != & -> *U -> -> 3969 `i `*VNuc `i << -> 1 `i -> 4 `i -> 0 `i 14  ]
+[; ;main.c: 82:             else if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<3)))) {
+[e :U 14 ]
+[e $ ! ! != & -> *U -> -> 3969 `i `*VNuc `i << -> 1 `i -> 3 `i -> 0 `i 16  ]
 {
 "83
-[; ;main.c: 83:             encher_tanque(&volume);
-[e ( _encher_tanque (1 &U _volume ]
+[; ;main.c: 83:                 ver_quantidade(&volume);
+[e ( _ver_quantidade (1 &U _volume ]
 "84
-[; ;main.c: 84:         }
+[; ;main.c: 84:             }
 }
-[e :U 14 ]
+[e $U 17  ]
 "85
-[; ;main.c: 85:         if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<5)))) {
-[e $ ! ! != & -> *U -> -> 3969 `i `*VNuc `i << -> 1 `i -> 5 `i -> 0 `i 15  ]
+[; ;main.c: 85:             else if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<4)))) {
+[e :U 16 ]
+[e $ ! ! != & -> *U -> -> 3969 `i `*VNuc `i << -> 1 `i -> 4 `i -> 0 `i 18  ]
 {
 "86
-[; ;main.c: 86:             esvaziar_tanque(&volume);
-[e ( _esvaziar_tanque (1 &U _volume ]
+[; ;main.c: 86:                 encher_tanque(&volume);
+[e ( _encher_tanque (1 &U _volume ]
 "87
-[; ;main.c: 87:         }
+[; ;main.c: 87:             }
 }
-[e :U 15 ]
+[e $U 19  ]
 "88
-[; ;main.c: 88:     }
-}
-[e :U 9 ]
-[e $U 10  ]
-[e :U 11 ]
+[; ;main.c: 88:             else if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<5)))) {
+[e :U 18 ]
+[e $ ! ! != & -> *U -> -> 3969 `i `*VNuc `i << -> 1 `i -> 5 `i -> 0 `i 20  ]
+{
 "89
-[; ;main.c: 89: }
+[; ;main.c: 89:                 esvaziar_tanque(&volume);
+[e ( _esvaziar_tanque (1 &U _volume ]
+"90
+[; ;main.c: 90:             }
+}
+[e :U 20 ]
+[e :U 19 ]
+[e :U 17 ]
+[e :U 15 ]
+"91
+[; ;main.c: 91:         }
+}
+[e :U 11 ]
+[e $U 12  ]
+[e :U 13 ]
+"92
+[; ;main.c: 92:     }
+}
+[e :U 2 ]
+[e $U 3  ]
+[e :U 4 ]
+"93
+[; ;main.c: 93: }
 [e :UE 1 ]
 }
 [a 4C 86 97 122 97 111 58 32 49 46 53 32 76 47 115 0 ]

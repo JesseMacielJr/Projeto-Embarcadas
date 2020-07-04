@@ -30,5 +30,4 @@ void ver_quantidade(double *vol) {
 
     while((BitTst(PORTB, 1))){
     }
-    
 }

@@ -38,52 +38,56 @@ void main() {
     lcd_str("Vazao: 1.5 L/s");
     atraso_ms(2000);
     lcd_cmd(L_CLR);
-comeco:
-    //Menu de opções
-    lcd_cmd(L_CLR);
-    lcd_cmd(L_L1);
-    lcd_str("RB3-Ver RB4-Encher");
-    lcd_cmd(L_L2);
-    lcd_str("RB5-Retirar");
-    for (i = 0; i < 2; i++) {
-        atraso_ms(350);
-        lcd_cmd(0x18);
-    }
-    for (i = 0; i < 2; i++) {
-        atraso_ms(350);
-        lcd_cmd(0x1C);
-    }
 
-    //Teclado numérico
-    TRISB = 0xF8;
-    TRISA = 0x20;
-    TRISB = 0x3F;
-    TRISA = 0x20;
-    TRISB = 0x3F;
-    TRISE = 0x00;
-
-    /*
-     Falta:
-     * Procurar algum código fonte de calculadora para poder realizar as operações básicas (somar e subtrair os valores obtidos no teclado).
-     * Declarar uma variável global que será a quantidade de água no tanque.
-     * Passar essa variável como parâmetro para todas as funções acessarem e modificarem (passar a referência &)    void encher(int), etc....
-     * Implementar o Buzzer
-     * Implementar o Cooler
-     * Implementar as mensagens de erro/sucesso das operações
-     */
+    int flag = 0;
 
     while (1) {
-        if (!(BitTst(PORTB, 1))) {
-            goto comeco;
+        //Menu de opções
+        flag = 0;
+        lcd_cmd(L_CLR);
+        lcd_cmd(L_L1);
+        lcd_str("RB3-Ver RB4-Encher");
+        lcd_cmd(L_L2);
+        lcd_str("RB5-Retirar");
+        for (i = 0; i < 2; i++) {
+            atraso_ms(350);
+            lcd_cmd(0x18);
         }
-        if (!(BitTst(PORTB, 3))) {
-            ver_quantidade(&volume);
+        for (i = 0; i < 2; i++) {
+            atraso_ms(350);
+            lcd_cmd(0x1C);
         }
-        if (!(BitTst(PORTB, 4))) {
-            encher_tanque(&volume);
-        }
-        if (!(BitTst(PORTB, 5))) {
-            esvaziar_tanque(&volume);
+
+        //Teclado numérico
+        TRISB = 0xF8;
+        TRISA = 0x20;
+        TRISB = 0x3F;
+        TRISA = 0x20;
+        TRISB = 0x3F;
+        TRISE = 0x00;
+
+        /*
+         Falta:
+         * Procurar algum código fonte de calculadora para poder realizar as operações básicas (somar e subtrair os valores obtidos no teclado).
+         * Declarar uma variável global que será a quantidade de água no tanque.
+         * Passar essa variável como parâmetro para todas as funções acessarem e modificarem (passar a referência &)    void encher(int), etc....
+         * Implementar o Buzzer
+         * Implementar o Cooler
+         * Implementar as mensagens de erro/sucesso das operações
+         */
+        while (1) {
+            if (!(BitTst(PORTB, 1))) {
+                break;
+            }
+            else if (!(BitTst(PORTB, 3))) {
+                ver_quantidade(&volume);
+            }
+            else if (!(BitTst(PORTB, 4))) {
+                encher_tanque(&volume);
+            }
+            else if (!(BitTst(PORTB, 5))) {
+                esvaziar_tanque(&volume);
+            }
         }
     }
 }

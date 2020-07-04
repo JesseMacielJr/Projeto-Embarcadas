@@ -218,5 +218,4 @@ void ver_quantidade(double *vol) {
 
     while(((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))){
     }
-
 }
