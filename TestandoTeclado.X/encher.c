@@ -14,10 +14,36 @@ void encher_tanque(double *vol) {
     lcd_cmd(L_L2);
     lcd_str("RB1-voltar");
     lcd_cmd(L_L1+10);
-    atraso_ms(1000);
-            
-    double incremento = 10; //Implementar pelo teclado
+    //atraso_ms(1000);
+    
+    
+    
+    unsigned int incremento;
 
+    unsigned int i = 0;
+    unsigned int num[2];
+    unsigned char tmp;
+    
+    TRISB = 0xF8;
+    
+    while (i!=2) {
+        TRISD = 0x0F;
+        tmp = tc_tecla(0) + 0x30;
+        TRISD = 0x00;
+        lcd_dat(tmp);
+        if (i == 0) {
+            num[i] = (tmp - '0')*10;
+        } else {
+            num[i] = (tmp - '0');
+        }
+        i++;
+    }
+    
+    atraso_ms(500);
+    lcd_cmd(L_CLR);
+    
+    incremento = num[0]+num[1];
+    
     if (*vol + incremento > 70) {
 
         //Mensagem falha

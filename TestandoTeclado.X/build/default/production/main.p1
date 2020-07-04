@@ -96,8 +96,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 30:     lcd_str("      agua");
 [e ( _lcd_str (1 :s 2C ]
 "31
-[; ;main.c: 31:     atraso_ms(1000);
-[e ( _atraso_ms (1 -> 1000 `i ]
+[; ;main.c: 31:     atraso_ms(atrasoMin);
+[e ( _atraso_ms (1 -> _atrasoMin `i ]
 "32
 [; ;main.c: 32:     lcd_cmd(0x01);
 [e ( _lcd_cmd (1 -> -> 1 `i `uc ]
@@ -114,8 +114,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 38:     lcd_str("Vazao: 1.5 L/s");
 [e ( _lcd_str (1 :s 4C ]
 "39
-[; ;main.c: 39:     atraso_ms(2000);
-[e ( _atraso_ms (1 -> 2000 `i ]
+[; ;main.c: 39:     atraso_ms(atrasoMin);
+[e ( _atraso_ms (1 -> _atrasoMin `i ]
 "40
 [; ;main.c: 40:     lcd_cmd(0x01);
 [e ( _lcd_cmd (1 -> -> 1 `i `uc ]

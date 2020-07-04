@@ -28,7 +28,7 @@ void main() {
     lcd_str("Abastecimento de");
     lcd_cmd(L_L2);
     lcd_str("      agua");
-    atraso_ms(1000);
+    atraso_ms(atrasoMin);
     lcd_cmd(L_CLR);
 
     //Especificações
@@ -36,7 +36,7 @@ void main() {
     lcd_str("Vol max = 70L");
     lcd_cmd(L_L2);
     lcd_str("Vazao: 1.5 L/s");
-    atraso_ms(2000);
+    atraso_ms(atrasoMin);
     lcd_cmd(L_CLR);
 
     int flag = 0;

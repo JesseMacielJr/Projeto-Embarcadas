@@ -79,6 +79,8 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
+"10 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 "3 C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\delay.c
 [v _atraso_ms atraso_ms `(v  1 e 1 0 ]
 "8 C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\encher.c
@@ -97,6 +99,8 @@
 [v _lcd_str lcd_str `(v  1 e 1 0 ]
 "16 C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
 [v _main main `(v  1 e 1 0 ]
+"14 C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\teclado.c
+[v _tc_tecla tc_tecla `(uc  1 e 1 0 ]
 "7 C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\ver.c
 [v _ver_quantidade ver_quantidade `(v  1 e 1 0 ]
 "55 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\doprnt.c
@@ -156,28 +160,49 @@
 "8 C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\encher.c
 [v _encher_tanque encher_tanque `(v  1 e 1 0 ]
 {
-"45
-[v encher_tanque@numeros numeros `[10]i  1 a 20 36 ]
-"37
-[v encher_tanque@y y `[8]uc  1 a 8 56 ]
-"44
-[v encher_tanque@i i `i  1 a 2 70 ]
-"43
-[v encher_tanque@tempo tempo `i  1 a 2 64 ]
-"19
-[v encher_tanque@incremento incremento `d  1 a 4 66 ]
+"71
+[v encher_tanque@numeros numeros `[10]i  1 a 20 40 ]
+"63
+[v encher_tanque@y y `[8]uc  1 a 8 60 ]
+"70
+[v encher_tanque@i_128 i `i  1 a 2 76 ]
+"69
+[v encher_tanque@tempo tempo `i  1 a 2 68 ]
+"24
+[v encher_tanque@num num `[2]ui  1 a 4 70 ]
+"23
+[v encher_tanque@i i `ui  1 a 2 79 ]
+"21
+[v encher_tanque@incremento incremento `ui  1 a 2 74 ]
+"25
+[v encher_tanque@tmp tmp `uc  1 a 1 78 ]
 "8
 [v encher_tanque@vol vol `*.39d  1 p 2 125 ]
-"44
-[v encher_tanque@F342 F342 `[10]i  1 s 20 F342 ]
-"97
+"70
+[v encher_tanque@F345 F345 `[10]i  1 s 20 F345 ]
+"123
+} 0
+"14 C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\teclado.c
+[v _tc_tecla tc_tecla `(uc  1 e 1 0 ]
+{
+"15
+[v tc_tecla@to to `ui  1 a 2 8 ]
+"16
+[v tc_tecla@i i `uc  1 a 1 12 ]
+"17
+[v tc_tecla@ret ret `uc  1 a 1 11 ]
+"18
+[v tc_tecla@tmp tmp `uc  1 a 1 10 ]
+"14
+[v tc_tecla@timeout timeout `ui  1 p 2 6 ]
+"66
 } 0
 "9 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[s S599 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[s S605 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
 "13
-[v sprintf@f f `S599  1 a 6 30 ]
+[v sprintf@f f `S605  1 a 6 30 ]
 "12
 [v sprintf@ap ap `[1]*.39v  1 a 2 28 ]
 "9
@@ -190,9 +215,9 @@
 {
 "1371
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 123 ]
-[s S625 _IO_FILE 0 ]
+[s S631 _IO_FILE 0 ]
 "1368
-[v vfprintf@fp fp `*.39S625  1 p 2 12 ]
+[v vfprintf@fp fp `*.39S631  1 p 2 12 ]
 [v vfprintf@fmt fmt `*.25Cuc  1 p 2 14 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 16 ]
 "1382
@@ -205,9 +230,9 @@
 "672
 [v vfpfcnvrt@ct ct `[3]uc  1 a 3 8 ]
 [v vfpfcnvrt@c c `uc  1 a 1 11 ]
-[s S625 _IO_FILE 0 ]
+[s S631 _IO_FILE 0 ]
 "670
-[v vfpfcnvrt@fp fp `*.39S625  1 p 2 113 ]
+[v vfpfcnvrt@fp fp `*.39S631  1 p 2 113 ]
 [v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 115 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 117 ]
 "1365
@@ -248,9 +273,9 @@
 "321
 [v efgtoa@mode mode `uc  1 a 1 90 ]
 [v efgtoa@nmode nmode `uc  1 a 1 87 ]
-[s S625 _IO_FILE 0 ]
+[s S631 _IO_FILE 0 ]
 "319
-[v efgtoa@fp fp `*.39S625  1 p 2 45 ]
+[v efgtoa@fp fp `*.39S631  1 p 2 45 ]
 [v efgtoa@f f `d  1 p 4 47 ]
 [v efgtoa@c c `uc  1 p 1 51 ]
 "503
@@ -285,9 +310,9 @@
 "74
 [v pad@w w `i  1 a 2 25 ]
 [v pad@i i `i  1 a 2 23 ]
-[s S625 _IO_FILE 0 ]
+[s S631 _IO_FILE 0 ]
 "72
-[v pad@fp fp `*.39S625  1 p 2 16 ]
+[v pad@fp fp `*.39S631  1 p 2 16 ]
 [v pad@buf buf `*.39uc  1 p 2 18 ]
 [v pad@p p `i  1 p 2 20 ]
 "95
@@ -310,16 +335,16 @@
 [v fputs@c c `uc  1 a 1 13 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 9 ]
-[s S599 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputs@fp fp `*.39S599  1 p 2 11 ]
+[s S605 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputs@fp fp `*.39S605  1 p 2 11 ]
 "19
 } 0
 "8 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[s S599 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputc@fp fp `*.39S599  1 p 2 2 ]
+[s S605 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputc@fp fp `*.39S605  1 p 2 2 ]
 "21
 } 0
 "7 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\putch.c
@@ -330,9 +355,9 @@
 "3 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\floorf.c
 [v _floorf floorf `(f  1 e 4 0 ]
 {
-[u S766 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S772 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "5
-[v floorf@u u `S766  1 a 4 41 ]
+[v floorf@u u `S772  1 a 4 41 ]
 "7
 [v floorf@m m `ul  1 a 4 35 ]
 "6
@@ -340,21 +365,21 @@
 "3
 [v floorf@x x `f  1 p 4 25 ]
 "4
-[v floorf@F524 F524 `S766  1 s 4 F524 ]
+[v floorf@F524 F524 `S772  1 s 4 F524 ]
 "27
 } 0
 "4 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\__fpclassifyf.c
 [v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
 {
-[u S766 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S772 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "6
-[v ___fpclassifyf@u u `S766  1 a 4 10 ]
+[v ___fpclassifyf@u u `S772  1 a 4 10 ]
 "7
 [v ___fpclassifyf@e e `i  1 a 2 8 ]
 "4
 [v ___fpclassifyf@x x `f  1 p 4 0 ]
 "5
-[v ___fpclassifyf@F463 F463 `S766  1 s 4 F463 ]
+[v ___fpclassifyf@F463 F463 `S772  1 s 4 F463 ]
 "11
 } 0
 "43 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\fltol.c
@@ -370,24 +395,24 @@
 "245 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\sprcadd.c
 [v ___flsub __flsub `(d  1 e 4 0 ]
 {
-[v ___flsub@b b `d  1 p 4 25 ]
-[v ___flsub@a a `d  1 p 4 29 ]
+[v ___flsub@b b `d  1 p 4 30 ]
+[v ___flsub@a a `d  1 p 4 34 ]
 "250
 } 0
 "10
 [v ___fladd __fladd `(d  1 e 4 0 ]
 {
 "17
-[v ___fladd@grs grs `uc  1 a 1 15 ]
+[v ___fladd@grs grs `uc  1 a 1 29 ]
 "15
-[v ___fladd@bexp bexp `uc  1 a 1 14 ]
+[v ___fladd@bexp bexp `uc  1 a 1 28 ]
 "16
-[v ___fladd@aexp aexp `uc  1 a 1 13 ]
+[v ___fladd@aexp aexp `uc  1 a 1 27 ]
 "13
-[v ___fladd@signs signs `uc  1 a 1 12 ]
+[v ___fladd@signs signs `uc  1 a 1 26 ]
 "10
-[v ___fladd@b b `d  1 p 4 0 ]
-[v ___fladd@a a `d  1 p 4 4 ]
+[v ___fladd@b b `d  1 p 4 14 ]
+[v ___fladd@a a `d  1 p 4 18 ]
 "237
 } 0
 "15 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\flneg.c
@@ -399,17 +424,17 @@
 "8 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S464 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S470 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S469 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S472 . 4 `l 1 i 4 0 `d 1 f 4 0 `S464 1 fAsBytes 4 0 `S469 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S472  1 a 4 19 ]
+[s S475 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S478 . 4 `l 1 i 4 0 `d 1 f 4 0 `S470 1 fAsBytes 4 0 `S475 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S478  1 a 4 19 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 13 ]
-[s S540 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S546 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S543 . 2 `s 1 i 2 0 `us 1 n 2 0 `S540 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S543  1 a 2 23 ]
+[u S549 . 2 `s 1 i 2 0 `us 1 n 2 0 `S546 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S549  1 a 2 23 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 18 ]
 "11
@@ -424,8 +449,8 @@
 "4 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\flge.c
 [v ___flge __flge `(b  1 e 0 0 ]
 {
-[v ___flge@ff1 ff1 `d  1 p 4 25 ]
-[v ___flge@ff2 ff2 `d  1 p 4 29 ]
+[v ___flge@ff1 ff1 `d  1 p 4 30 ]
+[v ___flge@ff2 ff2 `d  1 p 4 34 ]
 "19
 } 0
 "4 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\fleq.c
@@ -555,4 +580,19 @@
 "3
 [v atraso_ms@t t `i  1 p 2 0 ]
 "12
+} 0
+"10 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 10 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 9 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 0 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 8 ]
+"44
 } 0

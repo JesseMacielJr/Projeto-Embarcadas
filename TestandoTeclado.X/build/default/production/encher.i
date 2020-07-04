@@ -212,9 +212,35 @@ void encher_tanque(double *vol) {
     lcd_cmd(0xC0);
     lcd_str("RB1-voltar");
     lcd_cmd(0x80 +10);
-    atraso_ms(1000);
 
-    double incremento = 10;
+
+
+
+    unsigned int incremento;
+
+    unsigned int i = 0;
+    unsigned int num[2];
+    unsigned char tmp;
+
+    (*(volatile __near unsigned char*)0xF93) = 0xF8;
+
+    while (i!=2) {
+        (*(volatile __near unsigned char*)0xF95) = 0x0F;
+        tmp = tc_tecla(0) + 0x30;
+        (*(volatile __near unsigned char*)0xF95) = 0x00;
+        lcd_dat(tmp);
+        if (i == 0) {
+            num[i] = (tmp - '0')*10;
+        } else {
+            num[i] = (tmp - '0');
+        }
+        i++;
+    }
+
+    atraso_ms(500);
+    lcd_cmd(0x01);
+
+    incremento = num[0]+num[1];
 
     if (*vol + incremento > 70) {
 
@@ -280,7 +306,7 @@ void encher_tanque(double *vol) {
 
 
     }
-# 94 "encher.c"
+# 120 "encher.c"
     while(((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))){
     }
 
