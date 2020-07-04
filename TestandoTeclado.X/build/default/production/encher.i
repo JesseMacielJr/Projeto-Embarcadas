@@ -262,16 +262,18 @@ void encher_tanque(double *vol) {
         sprintf(y, "%.1f", *vol);
         lcd_str(y);
         lcd_str(" L");
+        atraso_ms(500);
 
 
         int tempo = incremento / 2;
-        int i;
+        int t1, t2;
+        int i = 0;
         int numeros[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D,
             0x07, 0x7F, 0x6F};
 
         (*(volatile __near unsigned char*)0xF92) = 0x00;
-        (((*(volatile __near unsigned char*)0xF80)) |= (1<<5));
 
+        (((*(volatile __near unsigned char*)0xF80)) |= (1<<4));
 
 
 
@@ -286,10 +288,32 @@ void encher_tanque(double *vol) {
 
 
 
-        for (i = tempo; i >= 0; i--) {
-            (*(volatile __near unsigned char*)0xF83) = numeros[i];
-            atraso_ms(1000);
+
+        t1 = tempo / 10;
+        t2 = tempo % 10;
+        while ((t1 != 0) || (t2 != 0)) {
+            (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
+            (((*(volatile __near unsigned char*)0xF80)) |= (1<<4));
+            (*(volatile __near unsigned char*)0xF83) = numeros[t1];
+            atraso_ms(5);
+            (((*(volatile __near unsigned char*)0xF80)) |= (1<<5));
+            (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<4));
+            (*(volatile __near unsigned char*)0xF83) = numeros[t2];
+            atraso_ms(5);
+
+            if(i == 40) {
+                i = 0;
+                if (t2 == 0) {
+                    t1--;
+                    t2 = 9;
+                } else {
+                    t2--;
+                }
+            } else {
+                i++;
+            }
         }
+
         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
 
 
@@ -306,7 +330,7 @@ void encher_tanque(double *vol) {
 
 
     }
-# 120 "encher.c"
+# 143 "encher.c"
     while(((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))){
     }
 

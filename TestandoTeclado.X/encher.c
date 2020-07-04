@@ -64,16 +64,18 @@ void encher_tanque(double *vol) {
         sprintf(y, "%.1f", *vol);
         lcd_str(y);
         lcd_str(" L");
+        atraso_ms(500);
 
         ////////////OPERAÇÃO//////////////
         int tempo = incremento / 2;
-        int i;
+        int t1, t2;
+        int i = 0;
         int numeros[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D,
             0x07, 0x7F, 0x6F};
 
         TRISA = 0x00; //config da porta A;
-        BitSet(PORTA, 5); //liga o 1o display
-        //BitSet(PORTA, 4); //liga o 2o display
+        //BitSet(PORTA, 5); //liga o 1o display
+        BitSet(PORTA, 4); //liga o 2o display
         //BitSet(PORTA, 3); //liga o 3o display
         //BitSet(PORTA, 2); //liga o 4o display;
 
@@ -87,11 +89,33 @@ void encher_tanque(double *vol) {
         //Código do Cooler (fazer com que seja simultâneo ao Display)
         //
 
-        //Timer para finalização        Falta alterar para tempo maior que 9 ou float
-        for (i = tempo; i >= 0; i--) {
-            PORTD = numeros[i];
-            atraso_ms(1000);
+        
+        //Timer para finalização
+        t1 = tempo / 10;
+        t2 = tempo % 10;
+        while ((t1 != 0) || (t2 != 0)) {
+            BitClr(PORTA, 5);
+            BitSet(PORTA, 4);
+            PORTD = numeros[t1];
+            atraso_ms(5);
+            BitSet(PORTA, 5); //liga o 1o display
+            BitClr(PORTA, 4); //liga o 2o display
+            PORTD = numeros[t2];
+            atraso_ms(5);
+            
+            if(i == 40) {
+                i = 0;
+                if (t2 == 0) {
+                    t1--;
+                    t2 = 9;
+                } else {
+                    t2--;
+                }
+            } else {
+                i++;
+            } 
         }
+        
         BitClr(PORTA, 5);
 
         //Mensagem êxito
@@ -111,10 +135,9 @@ void encher_tanque(double *vol) {
 
     /*
      * Falta:
-     * Sistema de adicionar a quantidade de agua que se deseja adicionar
-     * Calculo do tempo de enchimento
-     * Printar o tempo estimado no display de 7 segmentos
      * Adicionar o esquema dos Leds representarem o nível do tanque
+     * Cooler
+     * Buzzer
      */
 
     while((BitTst(PORTB, 1))){

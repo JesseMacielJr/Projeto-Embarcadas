@@ -160,27 +160,30 @@
 "8 C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\encher.c
 [v _encher_tanque encher_tanque `(v  1 e 1 0 ]
 {
-"71
+"73
 [v encher_tanque@numeros numeros `[10]i  1 a 20 40 ]
 "63
 [v encher_tanque@y y `[8]uc  1 a 8 60 ]
+"71
+[v encher_tanque@t2 t2 `i  1 a 2 81 ]
+[v encher_tanque@t1 t1 `i  1 a 2 76 ]
 "70
-[v encher_tanque@i_128 i `i  1 a 2 76 ]
-"69
-[v encher_tanque@tempo tempo `i  1 a 2 68 ]
+[v encher_tanque@tempo tempo `i  1 a 2 70 ]
+"72
+[v encher_tanque@i_130 i `i  1 a 2 68 ]
 "24
-[v encher_tanque@num num `[2]ui  1 a 4 70 ]
+[v encher_tanque@num num `[2]ui  1 a 4 72 ]
 "23
-[v encher_tanque@i i `ui  1 a 2 79 ]
+[v encher_tanque@i i `ui  1 a 2 83 ]
 "21
-[v encher_tanque@incremento incremento `ui  1 a 2 74 ]
+[v encher_tanque@incremento incremento `ui  1 a 2 78 ]
 "25
-[v encher_tanque@tmp tmp `uc  1 a 1 78 ]
+[v encher_tanque@tmp tmp `uc  1 a 1 80 ]
 "8
 [v encher_tanque@vol vol `*.39d  1 p 2 125 ]
-"70
-[v encher_tanque@F345 F345 `[10]i  1 s 20 F345 ]
-"123
+"72
+[v encher_tanque@F347 F347 `[10]i  1 s 20 F347 ]
+"146
 } 0
 "14 C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\teclado.c
 [v _tc_tecla tc_tecla `(uc  1 e 1 0 ]
@@ -200,9 +203,9 @@
 "9 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[s S605 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[s S607 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
 "13
-[v sprintf@f f `S605  1 a 6 30 ]
+[v sprintf@f f `S607  1 a 6 30 ]
 "12
 [v sprintf@ap ap `[1]*.39v  1 a 2 28 ]
 "9
@@ -215,9 +218,9 @@
 {
 "1371
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 123 ]
-[s S631 _IO_FILE 0 ]
+[s S633 _IO_FILE 0 ]
 "1368
-[v vfprintf@fp fp `*.39S631  1 p 2 12 ]
+[v vfprintf@fp fp `*.39S633  1 p 2 12 ]
 [v vfprintf@fmt fmt `*.25Cuc  1 p 2 14 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 16 ]
 "1382
@@ -230,9 +233,9 @@
 "672
 [v vfpfcnvrt@ct ct `[3]uc  1 a 3 8 ]
 [v vfpfcnvrt@c c `uc  1 a 1 11 ]
-[s S631 _IO_FILE 0 ]
+[s S633 _IO_FILE 0 ]
 "670
-[v vfpfcnvrt@fp fp `*.39S631  1 p 2 113 ]
+[v vfpfcnvrt@fp fp `*.39S633  1 p 2 113 ]
 [v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 115 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 117 ]
 "1365
@@ -273,9 +276,9 @@
 "321
 [v efgtoa@mode mode `uc  1 a 1 90 ]
 [v efgtoa@nmode nmode `uc  1 a 1 87 ]
-[s S631 _IO_FILE 0 ]
+[s S633 _IO_FILE 0 ]
 "319
-[v efgtoa@fp fp `*.39S631  1 p 2 45 ]
+[v efgtoa@fp fp `*.39S633  1 p 2 45 ]
 [v efgtoa@f f `d  1 p 4 47 ]
 [v efgtoa@c c `uc  1 p 1 51 ]
 "503
@@ -310,9 +313,9 @@
 "74
 [v pad@w w `i  1 a 2 25 ]
 [v pad@i i `i  1 a 2 23 ]
-[s S631 _IO_FILE 0 ]
+[s S633 _IO_FILE 0 ]
 "72
-[v pad@fp fp `*.39S631  1 p 2 16 ]
+[v pad@fp fp `*.39S633  1 p 2 16 ]
 [v pad@buf buf `*.39uc  1 p 2 18 ]
 [v pad@p p `i  1 p 2 20 ]
 "95
@@ -335,16 +338,16 @@
 [v fputs@c c `uc  1 a 1 13 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 9 ]
-[s S605 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputs@fp fp `*.39S605  1 p 2 11 ]
+[s S607 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputs@fp fp `*.39S607  1 p 2 11 ]
 "19
 } 0
 "8 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[s S605 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputc@fp fp `*.39S605  1 p 2 2 ]
+[s S607 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputc@fp fp `*.39S607  1 p 2 2 ]
 "21
 } 0
 "7 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\putch.c
@@ -355,9 +358,9 @@
 "3 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\floorf.c
 [v _floorf floorf `(f  1 e 4 0 ]
 {
-[u S772 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S774 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "5
-[v floorf@u u `S772  1 a 4 41 ]
+[v floorf@u u `S774  1 a 4 41 ]
 "7
 [v floorf@m m `ul  1 a 4 35 ]
 "6
@@ -365,21 +368,21 @@
 "3
 [v floorf@x x `f  1 p 4 25 ]
 "4
-[v floorf@F524 F524 `S772  1 s 4 F524 ]
+[v floorf@F524 F524 `S774  1 s 4 F524 ]
 "27
 } 0
 "4 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\__fpclassifyf.c
 [v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
 {
-[u S772 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S774 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "6
-[v ___fpclassifyf@u u `S772  1 a 4 10 ]
+[v ___fpclassifyf@u u `S774  1 a 4 10 ]
 "7
 [v ___fpclassifyf@e e `i  1 a 2 8 ]
 "4
 [v ___fpclassifyf@x x `f  1 p 4 0 ]
 "5
-[v ___fpclassifyf@F463 F463 `S772  1 s 4 F463 ]
+[v ___fpclassifyf@F463 F463 `S774  1 s 4 F463 ]
 "11
 } 0
 "43 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\fltol.c
@@ -424,17 +427,17 @@
 "8 D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S470 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S472 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S475 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S478 . 4 `l 1 i 4 0 `d 1 f 4 0 `S470 1 fAsBytes 4 0 `S475 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S478  1 a 4 19 ]
+[s S477 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S480 . 4 `l 1 i 4 0 `d 1 f 4 0 `S472 1 fAsBytes 4 0 `S477 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S480  1 a 4 19 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 13 ]
-[s S546 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S548 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S549 . 2 `s 1 i 2 0 `us 1 n 2 0 `S546 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S549  1 a 2 23 ]
+[u S551 . 2 `s 1 i 2 0 `us 1 n 2 0 `S548 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S551  1 a 2 23 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 18 ]
 "11
