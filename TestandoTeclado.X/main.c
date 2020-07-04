@@ -38,7 +38,6 @@ void main() {
     lcd_str("Vazao: 1.5 L/s");
     atraso_ms(2000);
     lcd_cmd(L_CLR);
-
 comeco:
     //Menu de opções
     lcd_cmd(L_CLR);

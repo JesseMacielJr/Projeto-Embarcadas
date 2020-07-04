@@ -63,7 +63,7 @@ idataBANK1 CODE 0 3B1C 3B1C 14 1
 dataBANK0 BANK0 1 C8 C8 1E 1
 dataBANK1 BANK1 1 150 150 14 1
 config CONFIG 4 300000 300000 E 1
-$C:\Users\gabri\AppData\Local\Temp\sbcc.o
+$C:\Users\gabri\AppData\Local\Temp\shkk.o
 idloc IDLOC 5 200000 200000 8 1
 init CODE 0 0 0 4 1
 config CONFIG 4 300000 300000 E 1
@@ -947,81 +947,81 @@ FC2 text9 CODE >465:D:\Programs\Microship\xc8\v2.20\pic\sources\c99\common\doprn
 2AAA text0 CODE >38:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
 2AB6 text0 CODE >39:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
 2AC2 text0 CODE >40:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2AC8 text0 CODE >44:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2ACE text0 CODE >45:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2AD4 text0 CODE >46:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2AE0 text0 CODE >47:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2AE6 text0 CODE >48:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2AF2 text0 CODE >49:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2AFC text0 CODE >50:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2B08 text0 CODE >51:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2B0E text0 CODE >52:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2B30 text0 CODE >53:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2B38 text0 CODE >54:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2B44 text0 CODE >55:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2B4A text0 CODE >56:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2B6C text0 CODE >59:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2B70 text0 CODE >60:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2B74 text0 CODE >61:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2B78 text0 CODE >62:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2B7C text0 CODE >63:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2B80 text0 CODE >64:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2B84 text0 CODE >77:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2AC8 text0 CODE >43:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2ACE text0 CODE >44:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2AD4 text0 CODE >45:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2AE0 text0 CODE >46:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2AE6 text0 CODE >47:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2AF2 text0 CODE >48:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2AFC text0 CODE >49:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2B08 text0 CODE >50:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2B0E text0 CODE >51:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2B30 text0 CODE >52:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2B38 text0 CODE >53:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2B44 text0 CODE >54:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2B4A text0 CODE >55:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2B6C text0 CODE >58:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2B70 text0 CODE >59:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2B74 text0 CODE >60:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2B78 text0 CODE >61:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2B7C text0 CODE >62:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2B80 text0 CODE >63:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2B84 text0 CODE >76:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2B96 text0 CODE >78:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
 2B96 text0 CODE >79:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2B96 text0 CODE >80:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2BA4 text0 CODE >81:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2BB0 text0 CODE >83:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2BBE text0 CODE >84:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2BCA text0 CODE >86:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-2BD8 text0 CODE >87:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
-369C cinit CODE >576:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-369C cinit CODE >578:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-369C cinit CODE >581:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-369C cinit CODE >661:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-369E cinit CODE >662:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36A0 cinit CODE >663:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36A2 cinit CODE >664:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36A4 cinit CODE >665:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36A6 cinit CODE >666:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36A8 cinit CODE >667:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36AC cinit CODE >668:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36B0 cinit CODE >669:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36B0 cinit CODE >670:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36B2 cinit CODE >671:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36B6 cinit CODE >672:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36B8 cinit CODE >673:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36BA cinit CODE >674:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36BC cinit CODE >678:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36BE cinit CODE >679:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36C0 cinit CODE >680:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36C2 cinit CODE >681:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36C4 cinit CODE >682:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36C6 cinit CODE >683:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36C8 cinit CODE >684:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36CC cinit CODE >685:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36D0 cinit CODE >686:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36D0 cinit CODE >687:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36D2 cinit CODE >688:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36D6 cinit CODE >689:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36D8 cinit CODE >690:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36DA cinit CODE >691:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36DC cinit CODE >695:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36E0 cinit CODE >696:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36E2 cinit CODE >697:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36E2 cinit CODE >698:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36E4 cinit CODE >699:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36E6 cinit CODE >700:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36E8 cinit CODE >703:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36EC cinit CODE >704:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36EE cinit CODE >705:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36EE cinit CODE >706:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36F0 cinit CODE >707:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36F2 cinit CODE >708:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36F4 cinit CODE >714:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36F4 cinit CODE >717:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36F6 cinit CODE >718:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36F8 cinit CODE >719:C:\Users\gabri\AppData\Local\Temp\sbcc.s
-36FA cinit CODE >720:C:\Users\gabri\AppData\Local\Temp\sbcc.s
+2BA4 text0 CODE >80:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2BB0 text0 CODE >82:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2BBE text0 CODE >83:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2BCA text0 CODE >85:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+2BD8 text0 CODE >86:C:\Users\gabri\OneDrive - Universidade Federal de Itajubá\Área de Trabalho\Projeto-Embarcadas\TestandoTeclado.X\main.c
+369C cinit CODE >576:C:\Users\gabri\AppData\Local\Temp\shkk.s
+369C cinit CODE >578:C:\Users\gabri\AppData\Local\Temp\shkk.s
+369C cinit CODE >581:C:\Users\gabri\AppData\Local\Temp\shkk.s
+369C cinit CODE >661:C:\Users\gabri\AppData\Local\Temp\shkk.s
+369E cinit CODE >662:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36A0 cinit CODE >663:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36A2 cinit CODE >664:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36A4 cinit CODE >665:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36A6 cinit CODE >666:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36A8 cinit CODE >667:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36AC cinit CODE >668:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36B0 cinit CODE >669:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36B0 cinit CODE >670:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36B2 cinit CODE >671:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36B6 cinit CODE >672:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36B8 cinit CODE >673:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36BA cinit CODE >674:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36BC cinit CODE >678:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36BE cinit CODE >679:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36C0 cinit CODE >680:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36C2 cinit CODE >681:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36C4 cinit CODE >682:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36C6 cinit CODE >683:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36C8 cinit CODE >684:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36CC cinit CODE >685:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36D0 cinit CODE >686:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36D0 cinit CODE >687:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36D2 cinit CODE >688:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36D6 cinit CODE >689:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36D8 cinit CODE >690:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36DA cinit CODE >691:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36DC cinit CODE >695:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36E0 cinit CODE >696:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36E2 cinit CODE >697:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36E2 cinit CODE >698:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36E4 cinit CODE >699:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36E6 cinit CODE >700:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36E8 cinit CODE >703:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36EC cinit CODE >704:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36EE cinit CODE >705:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36EE cinit CODE >706:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36F0 cinit CODE >707:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36F2 cinit CODE >708:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36F4 cinit CODE >714:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36F4 cinit CODE >717:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36F6 cinit CODE >718:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36F8 cinit CODE >719:C:\Users\gabri\AppData\Local\Temp\shkk.s
+36FA cinit CODE >720:C:\Users\gabri\AppData\Local\Temp\shkk.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1057,14 +1057,14 @@ encher_tanque@vol 7E 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTec
 strncmp@_l 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
 strncmp@_r 3 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\TestandoTeclado.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\gabri\AppData\Local\Temp\sbcc.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\gabri\AppData\Local\Temp\shkk.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\TestandoTeclado.X.production.o
 __end_of_atraso_ms 369C 0 CODE 0 text38 dist/default/production\TestandoTeclado.X.production.o
 __size_of_atraso_ms 0 0 ABS 0 - dist/default/production\TestandoTeclado.X.production.o
 ?_pad 11 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
 ?_vfprintf 8C 0 BANK0 1 cstackBANK0 dist/default/production\TestandoTeclado.X.production.o
 __Lsmallconst 600 0 SMALLCONST 0 smallconst dist/default/production\TestandoTeclado.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\gabri\AppData\Local\Temp\sbcc.o
+___sp 0 0 STACK 2 stack C:\Users\gabri\AppData\Local\Temp\shkk.o
 _atoi 2BEC 0 CODE 0 text30 dist/default/production\TestandoTeclado.X.production.o
 _dbuf 100 0 BANK1 1 bssBANK1 dist/default/production\TestandoTeclado.X.production.o
 _main 2A42 0 CODE 0 text0 dist/default/production\TestandoTeclado.X.production.o
@@ -1073,7 +1073,7 @@ _prec F2 0 BANK0 1 bssBANK0 dist/default/production\TestandoTeclado.X.production
 pad@i 18 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
 pad@p 15 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
 pad@w 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
-start 0 0 CODE 0 init C:\Users\gabri\AppData\Local\Temp\sbcc.o
+start 0 0 CODE 0 init C:\Users\gabri\AppData\Local\Temp\shkk.o
 ___flmul@aexp 12 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
 ___flmul@bexp 13 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
 ___flmul@prod 14 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
@@ -1108,11 +1108,11 @@ __end_of_vfpfcnvrt 1BB8 0 CODE 0 text7 dist/default/production\TestandoTeclado.X
 ___awmod@sign 6 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
 encher_tanque@tempo C0 0 BANK0 1 cstackBANK0 dist/default/production\TestandoTeclado.X.production.o
 __size_of_vfpfcnvrt 0 0 ABS 0 - dist/default/production\TestandoTeclado.X.production.o
-__accesstop 80 0 ABS 0 - C:\Users\gabri\AppData\Local\Temp\sbcc.o
-intlevel0 0 0 CODE 0 text C:\Users\gabri\AppData\Local\Temp\sbcc.o
-intlevel1 0 0 CODE 0 text C:\Users\gabri\AppData\Local\Temp\sbcc.o
-intlevel2 0 0 CODE 0 text C:\Users\gabri\AppData\Local\Temp\sbcc.o
-intlevel3 0 0 CODE 0 text C:\Users\gabri\AppData\Local\Temp\sbcc.o
+__accesstop 80 0 ABS 0 - C:\Users\gabri\AppData\Local\Temp\shkk.o
+intlevel0 0 0 CODE 0 text C:\Users\gabri\AppData\Local\Temp\shkk.o
+intlevel1 0 0 CODE 0 text C:\Users\gabri\AppData\Local\Temp\shkk.o
+intlevel2 0 0 CODE 0 text C:\Users\gabri\AppData\Local\Temp\shkk.o
+intlevel3 0 0 CODE 0 text C:\Users\gabri\AppData\Local\Temp\shkk.o
 floorf@e 28 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
 floorf@m 24 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
 floorf@u 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
@@ -1133,8 +1133,8 @@ __end_of_lcd_cmd 3AD8 0 CODE 0 text36 dist/default/production\TestandoTeclado.X.
 __end_of_lcd_dat 3AAE 0 CODE 0 text35 dist/default/production\TestandoTeclado.X.production.o
 __end_of_lcd_str 3638 0 CODE 0 text34 dist/default/production\TestandoTeclado.X.production.o
 ___awdiv@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\gabri\AppData\Local\Temp\sbcc.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\gabri\AppData\Local\Temp\sbcc.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\gabri\AppData\Local\Temp\shkk.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\gabri\AppData\Local\Temp\shkk.o
 ?_tolower 7 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\TestandoTeclado.X.production.o
 __end_of___fleq 35C0 0 CODE 0 text26 dist/default/production\TestandoTeclado.X.production.o
@@ -1247,7 +1247,7 @@ __Htext9 0 0 ABS 0 text9 dist/default/production\TestandoTeclado.X.production.o
 _encher_tanque 237C 0 CODE 0 text4 dist/default/production\TestandoTeclado.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\TestandoTeclado.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\TestandoTeclado.X.production.o
-__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\gabri\AppData\Local\Temp\sbcc.o
+__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\gabri\AppData\Local\Temp\shkk.o
 lcd_str@i C 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
 efgtoa@nmode 58 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
 __end_of_sprintf 38CA 0 CODE 0 text5 dist/default/production\TestandoTeclado.X.production.o
@@ -1441,8 +1441,8 @@ _strlen 3A4E 0 CODE 0 text14 dist/default/production\TestandoTeclado.X.productio
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\TestandoTeclado.X.production.o
 ___fldiv@new_exp 12 0 COMRAM 1 cstackCOMRAM dist/default/production\TestandoTeclado.X.production.o
 __size_of_vfprintf 0 0 ABS 0 - dist/default/production\TestandoTeclado.X.production.o
-stackhi 5FF 0 ABS 0 - C:\Users\gabri\AppData\Local\Temp\sbcc.o
-stacklo 164 0 ABS 0 - C:\Users\gabri\AppData\Local\Temp\sbcc.o
+stackhi 5FF 0 ABS 0 - C:\Users\gabri\AppData\Local\Temp\shkk.o
+stacklo 164 0 ABS 0 - C:\Users\gabri\AppData\Local\Temp\shkk.o
 __Lintcode 0 0 CODE 0 intcode dist/default/production\TestandoTeclado.X.production.o
 _volume F8 0 BANK0 1 bssBANK0 dist/default/production\TestandoTeclado.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\TestandoTeclado.X.production.o
@@ -1541,7 +1541,7 @@ __Ltext35 0 0 ABS 0 text35 dist/default/production\TestandoTeclado.X.production.
 __Ltext36 0 0 ABS 0 text36 dist/default/production\TestandoTeclado.X.production.o
 __Ltext37 0 0 ABS 0 text37 dist/default/production\TestandoTeclado.X.production.o
 __Ltext38 0 0 ABS 0 text38 dist/default/production\TestandoTeclado.X.production.o
-__ramtop 600 0 RAM 0 ramtop C:\Users\gabri\AppData\Local\Temp\sbcc.o
+__ramtop 600 0 RAM 0 ramtop C:\Users\gabri\AppData\Local\Temp\shkk.o
 _sprintf 3878 0 CODE 0 text5 dist/default/production\TestandoTeclado.X.production.o
 _vfprintf 36FE 0 CODE 0 text6 dist/default/production\TestandoTeclado.X.production.o
 __Lpowerup 0 0 CODE 0 powerup dist/default/production\TestandoTeclado.X.production.o

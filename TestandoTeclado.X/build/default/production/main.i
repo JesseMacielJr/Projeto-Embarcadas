@@ -4,7 +4,7 @@
 # 288 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "D:\\Programs\\Microship\\xc8\\v2.20\\pic\\include\\language_support.h" 1 3
+# 1 "C:/Users/gabri/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
 # 1 "./config.h" 1
@@ -98,7 +98,6 @@ void main() {
     lcd_str("Vazao: 1.5 L/s");
     atraso_ms(2000);
     lcd_cmd(0x01);
-
 comeco:
 
     lcd_cmd(0x01);
@@ -122,7 +121,7 @@ comeco:
     (*(volatile __near unsigned char*)0xF92) = 0x20;
     (*(volatile __near unsigned char*)0xF93) = 0x3F;
     (*(volatile __near unsigned char*)0xF96) = 0x00;
-# 76 "main.c"
+# 75 "main.c"
     while (1) {
         if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))) {
             goto comeco;

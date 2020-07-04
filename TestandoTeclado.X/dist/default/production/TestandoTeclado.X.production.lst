@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Sat Jul 04 14:39:05 2020
+                                                                                               Sat Jul 04 16:50:33 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	18F4520
@@ -63,7 +63,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
     57                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=1,noexec
     58  0000                     
     59                           ; Version 2.20
-    60                           ; Generated 09/04/2020 GMT
+    60                           ; Generated 12/02/2020 GMT
     61                           ; 
     62                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
     63                           ; All rights reserved.
@@ -1314,33 +1314,33 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1300  002AC4  EC57  F01D         	call	_lcd_cmd
   1301  002AC8                     l4496:
   1302                           
-  1303                           ;main.c: 44:     lcd_cmd(0x01);
+  1303                           ;main.c: 43:     lcd_cmd(0x01);
   1304  002AC8  0E01               	movlw	1
   1305  002ACA  EC57  F01D         	call	_lcd_cmd
   1306  002ACE                     
-  1307                           ;main.c: 45:     lcd_cmd(0x80);
+  1307                           ;main.c: 44:     lcd_cmd(0x80);
   1308  002ACE  0E80               	movlw	128
   1309  002AD0  EC57  F01D         	call	_lcd_cmd
   1310  002AD4                     
-  1311                           ;main.c: 46:     lcd_str("RB3-Ver RB4-Encher");
+  1311                           ;main.c: 45:     lcd_str("RB3-Ver RB4-Encher");
   1312  002AD4  0E05               	movlw	low STR_5
   1313  002AD6  6E08               	movwf	lcd_str@str^0,c
   1314  002AD8  0E06               	movlw	high STR_5
   1315  002ADA  6E09               	movwf	(lcd_str@str+1)^0,c
   1316  002ADC  ECE0  F01A         	call	_lcd_str	;wreg free
   1317  002AE0                     
-  1318                           ;main.c: 47:     lcd_cmd(0xC0);
+  1318                           ;main.c: 46:     lcd_cmd(0xC0);
   1319  002AE0  0EC0               	movlw	192
   1320  002AE2  EC57  F01D         	call	_lcd_cmd
   1321  002AE6                     
-  1322                           ;main.c: 48:     lcd_str("RB5-Retirar");
+  1322                           ;main.c: 47:     lcd_str("RB5-Retirar");
   1323  002AE6  0E99               	movlw	low STR_6
   1324  002AE8  6E08               	movwf	lcd_str@str^0,c
   1325  002AEA  0E06               	movlw	high STR_6
   1326  002AEC  6E09               	movwf	(lcd_str@str+1)^0,c
   1327  002AEE  ECE0  F01A         	call	_lcd_str	;wreg free
   1328  002AF2                     
-  1329                           ;main.c: 49:     for (i = 0; i < 2; i++) {
+  1329                           ;main.c: 48:     for (i = 0; i < 2; i++) {
   1330  002AF2  0E00               	movlw	0
   1331  002AF4  0100               	movlb	0	; () banked
   1332  002AF6  6FF7               	movwf	(_i+1)& (0+255),b
@@ -1349,18 +1349,18 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1335  002AFC                     l4512:
   1336                           
   1337                           ; BSR set to: 0
-  1338                           ;main.c: 50:         atraso_ms(350);
+  1338                           ;main.c: 49:         atraso_ms(350);
   1339  002AFC  0E01               	movlw	1
   1340  002AFE  6E02               	movwf	(atraso_ms@t+1)^0,c
   1341  002B00  0E5E               	movlw	94
   1342  002B02  6E01               	movwf	atraso_ms@t^0,c
   1343  002B04  EC1C  F01B         	call	_atraso_ms	;wreg free
   1344                           
-  1345                           ;main.c: 51:         lcd_cmd(0x18);
+  1345                           ;main.c: 50:         lcd_cmd(0x18);
   1346  002B08  0E18               	movlw	24
   1347  002B0A  EC57  F01D         	call	_lcd_cmd
   1348  002B0E                     
-  1349                           ;main.c: 52:     }
+  1349                           ;main.c: 51:     }
   1350  002B0E  0100               	movlb	0	; () banked
   1351  002B10  4BF6               	infsnz	_i& (0+255),f,b
   1352  002B12  2BF7               	incf	(_i+1)& (0+255),f,b
@@ -1380,7 +1380,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1366  002B30                     u5270:
   1367  002B30                     
   1368                           ; BSR set to: 0
-  1369                           ;main.c: 53:     for (i = 0; i < 2; i++) {
+  1369                           ;main.c: 52:     for (i = 0; i < 2; i++) {
   1370  002B30  0E00               	movlw	0
   1371  002B32  6FF7               	movwf	(_i+1)& (0+255),b
   1372  002B34  0E00               	movlw	0
@@ -1388,18 +1388,18 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1374  002B38                     l4524:
   1375                           
   1376                           ; BSR set to: 0
-  1377                           ;main.c: 54:         atraso_ms(350);
+  1377                           ;main.c: 53:         atraso_ms(350);
   1378  002B38  0E01               	movlw	1
   1379  002B3A  6E02               	movwf	(atraso_ms@t+1)^0,c
   1380  002B3C  0E5E               	movlw	94
   1381  002B3E  6E01               	movwf	atraso_ms@t^0,c
   1382  002B40  EC1C  F01B         	call	_atraso_ms	;wreg free
   1383                           
-  1384                           ;main.c: 55:         lcd_cmd(0x1C);
+  1384                           ;main.c: 54:         lcd_cmd(0x1C);
   1385  002B44  0E1C               	movlw	28
   1386  002B46  EC57  F01D         	call	_lcd_cmd
   1387  002B4A                     
-  1388                           ;main.c: 56:     }
+  1388                           ;main.c: 55:     }
   1389  002B4A  0100               	movlb	0	; () banked
   1390  002B4C  4BF6               	infsnz	_i& (0+255),f,b
   1391  002B4E  2BF7               	incf	(_i+1)& (0+255),f,b
@@ -1419,32 +1419,32 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1405  002B6C                     u5280:
   1406  002B6C                     
   1407                           ; BSR set to: 0
-  1408                           ;main.c: 59:     (*(volatile __near unsigned char*)0xF93) = 0xF8;
+  1408                           ;main.c: 58:     (*(volatile __near unsigned char*)0xF93) = 0xF8;
   1409  002B6C  0EF8               	movlw	248
   1410  002B6E  6E93               	movwf	147,c	;volatile
   1411                           
-  1412                           ;main.c: 60:     (*(volatile __near unsigned char*)0xF92) = 0x20;
+  1412                           ;main.c: 59:     (*(volatile __near unsigned char*)0xF92) = 0x20;
   1413  002B70  0E20               	movlw	32
   1414  002B72  6E92               	movwf	146,c	;volatile
   1415                           
-  1416                           ;main.c: 61:     (*(volatile __near unsigned char*)0xF93) = 0x3F;
+  1416                           ;main.c: 60:     (*(volatile __near unsigned char*)0xF93) = 0x3F;
   1417  002B74  0E3F               	movlw	63
   1418  002B76  6E93               	movwf	147,c	;volatile
   1419                           
-  1420                           ;main.c: 62:     (*(volatile __near unsigned char*)0xF92) = 0x20;
+  1420                           ;main.c: 61:     (*(volatile __near unsigned char*)0xF92) = 0x20;
   1421  002B78  0E20               	movlw	32
   1422  002B7A  6E92               	movwf	146,c	;volatile
   1423                           
-  1424                           ;main.c: 63:     (*(volatile __near unsigned char*)0xF93) = 0x3F;
+  1424                           ;main.c: 62:     (*(volatile __near unsigned char*)0xF93) = 0x3F;
   1425  002B7C  0E3F               	movlw	63
   1426  002B7E  6E93               	movwf	147,c	;volatile
   1427                           
-  1428                           ;main.c: 64:     (*(volatile __near unsigned char*)0xF96) = 0x00;
+  1428                           ;main.c: 63:     (*(volatile __near unsigned char*)0xF96) = 0x00;
   1429  002B80  0E00               	movlw	0
   1430  002B82  6E96               	movwf	150,c	;volatile
   1431  002B84                     l4532:
   1432                           
-  1433                           ;main.c: 77:         if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))) {
+  1433                           ;main.c: 76:         if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))) {
   1434  002B84  B281               	btfsc	129,1,c	;volatile
   1435  002B86  EFC7  F015         	goto	u5291
   1436  002B8A  EFC9  F015         	goto	u5290
@@ -1454,7 +1454,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1440  002B92  EF64  F015         	goto	l4496
   1441  002B96                     l119:
   1442                           
-  1443                           ;main.c: 80:         if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<3)))) {
+  1443                           ;main.c: 79:         if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<3)))) {
   1444  002B96  B681               	btfsc	129,3,c	;volatile
   1445  002B98  EFD0  F015         	goto	u5301
   1446  002B9C  EFD2  F015         	goto	u5300
@@ -1462,7 +1462,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1448  002BA0  EFD8  F015         	goto	l4538
   1449  002BA4                     u5300:
   1450  002BA4                     
-  1451                           ;main.c: 81:             ver_quantidade(&volume);
+  1451                           ;main.c: 80:             ver_quantidade(&volume);
   1452  002BA4  0EF8               	movlw	low _volume
   1453  002BA6  6E7E               	movwf	ver_quantidade@vol^0,c
   1454  002BA8  0E00               	movlw	high _volume
@@ -1470,7 +1470,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1456  002BAC  ECD7  F019         	call	_ver_quantidade	;wreg free
   1457  002BB0                     l4538:
   1458                           
-  1459                           ;main.c: 83:         if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<4)))) {
+  1459                           ;main.c: 82:         if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<4)))) {
   1460  002BB0  B881               	btfsc	129,4,c	;volatile
   1461  002BB2  EFDD  F015         	goto	u5311
   1462  002BB6  EFDF  F015         	goto	u5310
@@ -1478,7 +1478,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1464  002BBA  EFE5  F015         	goto	l4542
   1465  002BBE                     u5310:
   1466  002BBE                     
-  1467                           ;main.c: 84:             encher_tanque(&volume);
+  1467                           ;main.c: 83:             encher_tanque(&volume);
   1468  002BBE  0EF8               	movlw	low _volume
   1469  002BC0  6E7E               	movwf	encher_tanque@vol^0,c
   1470  002BC2  0E00               	movlw	high _volume
@@ -1486,7 +1486,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1472  002BC6  ECBE  F011         	call	_encher_tanque	;wreg free
   1473  002BCA                     l4542:
   1474                           
-  1475                           ;main.c: 86:         if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<5)))) {
+  1475                           ;main.c: 85:         if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<5)))) {
   1476  002BCA  BA81               	btfsc	129,5,c	;volatile
   1477  002BCC  EFEA  F015         	goto	u5321
   1478  002BD0  EFEC  F015         	goto	u5320
@@ -1494,7 +1494,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1480  002BD4  EFC2  F015         	goto	l4532
   1481  002BD8                     u5320:
   1482  002BD8                     
-  1483                           ;main.c: 87:             esvaziar_tanque(&volume);
+  1483                           ;main.c: 86:             esvaziar_tanque(&volume);
   1484  002BD8  0EF8               	movlw	low _volume
   1485  002BDA  6E7E               	movwf	esvaziar_tanque@vol^0,c
   1486  002BDC  0E00               	movlw	high _volume
@@ -10342,7 +10342,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Sat Jul 04 14:39:05 2020
+Symbol Table                                                                                   Sat Jul 04 16:50:33 2020
 
              ___fldiv@aexp 0019  esvaziar_tanque@decremento 00C2               ___fldiv@bexp 0018  
                         _i 00F6               ___fldiv@sign 0011                         l10 369A  
