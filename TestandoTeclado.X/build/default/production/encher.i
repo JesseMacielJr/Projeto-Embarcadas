@@ -43,6 +43,14 @@ void atraso_ms(int t);
     unsigned char tc_tecla(unsigned int timeout);
 # 5 "encher.c" 2
 
+# 1 "./pwm.h" 1
+# 23 "./pwm.h"
+ void pwmSet1(unsigned char porcento);
+ void pwmSet2(unsigned char porcento);
+ void pwmFrequency(unsigned int freq);
+ void pwmInit(void);
+# 6 "encher.c" 2
+
 # 1 "D:\\Programs\\Microship\\xc8\\v2.20\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -200,7 +208,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 6 "encher.c" 2
+# 7 "encher.c" 2
 
 
 void encher_tanque(double *vol) {
@@ -267,7 +275,7 @@ void encher_tanque(double *vol) {
 
         int tempo = incremento / 2;
         int t1, t2;
-        int i = 0;
+        int i = 0, potencia = 100;
         int numeros[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D,
             0x07, 0x7F, 0x6F};
 
@@ -287,11 +295,14 @@ void encher_tanque(double *vol) {
 
 
 
+        pwmInit();
 
 
         t1 = tempo / 10;
         t2 = tempo % 10;
         while ((t1 != 0) || (t2 != 0)) {
+            potencia = 100*(tempo-(t1*10)+t2)/tempo;
+            pwmSet1(potencia);
             (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
             (((*(volatile __near unsigned char*)0xF80)) |= (1<<4));
             (*(volatile __near unsigned char*)0xF83) = numeros[t1];
@@ -313,6 +324,7 @@ void encher_tanque(double *vol) {
                 i++;
             }
         }
+        pwmSet1(0);
 
         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
 
@@ -330,7 +342,7 @@ void encher_tanque(double *vol) {
 
 
     }
-# 143 "encher.c"
+# 148 "encher.c"
     while(((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))){
     }
 

@@ -3,6 +3,7 @@
 #include "pic18f4520.h"
 #include "delay.h"
 #include "teclado.h"
+#include "pwm.h"
 #include <stdio.h>
 
 void encher_tanque(double *vol) {
@@ -69,7 +70,7 @@ void encher_tanque(double *vol) {
         ////////////OPERAÇÃO//////////////
         int tempo = incremento / 2;
         int t1, t2;
-        int i = 0;
+        int i = 0, potencia = 100;
         int numeros[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D,
             0x07, 0x7F, 0x6F};
 
@@ -88,12 +89,21 @@ void encher_tanque(double *vol) {
         //
         //Código do Cooler (fazer com que seja simultâneo ao Display)
         //
-
+        
+        pwmInit();
         
         //Timer para finalização
         t1 = tempo / 10;
         t2 = tempo % 10;
         while ((t1 != 0) || (t2 != 0)) {
+            /* funcao para a potencia do
+             * cooler ser linear de acordo
+             * com o restante de tempo 
+             */
+            potencia = 100*(tempo-(t1*10)+t2)/tempo; 
+            pwmSet1(potencia);
+            
+            //print nos displays
             BitClr(PORTA, 5);
             BitSet(PORTA, 4);
             PORTD = numeros[t1];
@@ -115,6 +125,7 @@ void encher_tanque(double *vol) {
                 i++;
             } 
         }
+        pwmSet1(0);
         
         BitClr(PORTA, 5);
 
