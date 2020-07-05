@@ -215,7 +215,7 @@ void ver_quantidade(double *vol) {
     lcd_str(y);
     lcd_str(" L");
     lcd_cmd(0xC0);
-    lcd_str("0-Voltar");
+    lcd_str("# - Voltar");
     lcd_cmd(0xC0);
 
     for (i = 0; i < 7; i++) {
@@ -227,7 +227,6 @@ void ver_quantidade(double *vol) {
 
 
 
-    unsigned int num;
     unsigned char tmp;
 
     (*(volatile __near unsigned char*)0xF93) = 0xF8;
@@ -236,8 +235,8 @@ void ver_quantidade(double *vol) {
         (*(volatile __near unsigned char*)0xF95) = 0x0F;
         tmp = tc_tecla(0) + 0x30;
         (*(volatile __near unsigned char*)0xF95) = 0x00;
-        num = (tmp - '0');
-        if (num == 0) {
+        if (tmp >= 0x3C) {
+            (((*(volatile __near unsigned char*)0xF94)) &= ~(1<<1));
             break;
         }
     }

@@ -43,6 +43,14 @@ void atraso_ms(int t);
     unsigned char tc_tecla(unsigned int timeout);
 # 5 "esvaziar.c" 2
 
+# 1 "./pwm.h" 1
+# 23 "./pwm.h"
+ void pwmSet1(unsigned char porcento);
+ void pwmSet2(unsigned char porcento);
+ void pwmFrequency(unsigned int freq);
+ void pwmInit(void);
+# 6 "esvaziar.c" 2
+
 # 1 "D:\\Programs\\Microship\\xc8\\v2.20\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -200,7 +208,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 6 "esvaziar.c" 2
+# 7 "esvaziar.c" 2
 
 
 void esvaziar_tanque(double *vol) {
@@ -210,11 +218,39 @@ void esvaziar_tanque(double *vol) {
     lcd_cmd(0x80);
     lcd_str("Quant(L): ");
     lcd_cmd(0xC0);
-    lcd_str("RB1-voltar");
+    lcd_str("# - Voltar");
     lcd_cmd(0x80 +10);
-    atraso_ms(1000);
 
-    double decremento = 5;
+    unsigned int decremento;
+
+    unsigned int i = 0;
+    unsigned int num[2];
+    unsigned char tmp;
+
+    (*(volatile __near unsigned char*)0xF93) = 0xF8;
+
+    while (i != 2) {
+        (*(volatile __near unsigned char*)0xF95) = 0x0F;
+        tmp = tc_tecla(0) + 0x30;
+        (*(volatile __near unsigned char*)0xF95) = 0x00;
+        lcd_dat(tmp);
+        if (tmp >= 0x3C) {
+            return;
+        } else if (i == 0) {
+            num[i] = (tmp - '0')*10;
+        } else {
+            num[i] = (tmp - '0');
+        }
+        i++;
+    }
+
+    (*(volatile __near unsigned char*)0xF92) = 0x20;
+    (*(volatile __near unsigned char*)0xF93) = 0x3F;
+
+    atraso_ms(500);
+    lcd_cmd(0x01);
+
+    decremento = num[0] + num[1];
 
     if (*vol - decremento < 0) {
 
@@ -223,10 +259,10 @@ void esvaziar_tanque(double *vol) {
         lcd_cmd(0x80);
         lcd_str("ERRO: vol < 0");
         lcd_cmd(0xC0);
-        lcd_str("RB1-Voltar");
+        lcd_str("# - Voltar");
 
 
-
+        (((*(volatile __near unsigned char*)0xF94)) |= (1<<1));
 
 
     } else {
@@ -236,18 +272,15 @@ void esvaziar_tanque(double *vol) {
         sprintf(y, "%.1f", *vol);
         lcd_str(y);
         lcd_str(" L");
+        atraso_ms(500);
 
 
-        int tempo = decremento / 2;
-        int i;
-        int numeros[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D,
+        unsigned int i = 0, potencia = 100, t1, t2, tempo = decremento / 2;
+        float porcento;
+        unsigned int numeros[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D,
             0x07, 0x7F, 0x6F};
 
         (*(volatile __near unsigned char*)0xF92) = 0x00;
-
-
-
-
 
         lcd_cmd(0x01);
         lcd_cmd(0x80);
@@ -255,34 +288,66 @@ void esvaziar_tanque(double *vol) {
         lcd_cmd(0xC0);
         lcd_str("Aguarde!");
 
+        pwmInit();
+
+
+        t1 = tempo / 10;
+        t2 = tempo % 10;
+        while ((t1 != 0) || (t2 != 0)) {
 
 
 
 
+            porcento = ((((float) t1 * 10.0) + (float) t2) / (float) tempo);
+            potencia = 100 * porcento;
+            if (potencia == 100) {
+                potencia = 99;
+            }
+            pwmSet1(potencia);
 
-        for (i = tempo; i >= 0; i--) {
-            (*(volatile __near unsigned char*)0xF83) = numeros[i];
-            atraso_ms(1000);
+
+            (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
+            (((*(volatile __near unsigned char*)0xF80)) |= (1<<4));
+            (*(volatile __near unsigned char*)0xF83) = numeros[t1];
+            atraso_ms(5);
+            (((*(volatile __near unsigned char*)0xF80)) |= (1<<5));
+            (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<4));
+            (*(volatile __near unsigned char*)0xF83) = numeros[t2];
+            atraso_ms(5);
+
+            if (i == 40) {
+                i = 0;
+                if (t2 == 0) {
+                    t1--;
+                    t2 = 9;
+                } else {
+                    t2--;
+                }
+            } else {
+                i++;
+            }
         }
+        pwmSet1(0);
+
+
+        (((*(volatile __near unsigned char*)0xF94)) |= (1<<1));
+
+
         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
+        (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<4));
 
 
         lcd_cmd(0x01);
         lcd_cmd(0x80);
         lcd_str("    SUCESSO!");
         lcd_cmd(0xC0);
-        lcd_str("    0-Voltar");
-
-
-
-
-
-
-
+        lcd_str("   # - Voltar");
     }
-# 94 "esvaziar.c"
-    unsigned int opt;
-    unsigned char tmp;
+
+
+
+
+
 
     (*(volatile __near unsigned char*)0xF93) = 0xF8;
 
@@ -290,8 +355,8 @@ void esvaziar_tanque(double *vol) {
         (*(volatile __near unsigned char*)0xF95) = 0x0F;
         tmp = tc_tecla(0) + 0x30;
         (*(volatile __near unsigned char*)0xF95) = 0x00;
-        opt = (tmp - '0');
-        if (opt == 0) {
+        if (tmp >= 0x3C) {
+            (((*(volatile __near unsigned char*)0xF94)) &= ~(1<<1));
             break;
         }
     }

@@ -116,9 +116,7 @@ void main() {
             tmp = tc_tecla(0) + 0x30;
             (*(volatile __near unsigned char*)0xF95) = 0x00;
             opt = (tmp - '0');
-            if (opt == 0) {
-                break;
-            } else if (opt == 1) {
+            if (opt == 1) {
                 ver_quantidade(&volume);
                 break;
             } else if (opt == 2) {
@@ -130,6 +128,7 @@ void main() {
             } else {
                 lcd_cmd(0x01);
                 lcd_str("    INVALIDO!");
+                atraso_ms(200);
                 break;
             }
         }

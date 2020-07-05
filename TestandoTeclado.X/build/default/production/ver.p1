@@ -45,7 +45,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ver.c: 19:     lcd_cmd(0xC0);
 [e ( _lcd_cmd (1 -> -> 192 `i `uc ]
 "20
-[; ;ver.c: 20:     lcd_str("0-Voltar");
+[; ;ver.c: 20:     lcd_str("# - Voltar");
 [e ( _lcd_str (1 :s 4C ]
 "21
 [; ;ver.c: 21:     lcd_cmd(0xC0);
@@ -69,53 +69,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 5 ]
 }
 "32
-[; ;ver.c: 32:     unsigned int num;
-[v _num `ui ~T0 @X0 1 a ]
-"33
-[; ;ver.c: 33:     unsigned char tmp;
+[; ;ver.c: 32:     unsigned char tmp;
 [v _tmp `uc ~T0 @X0 1 a ]
-"35
-[; ;ver.c: 35:     (*(volatile __near unsigned char*)0xF93) = 0xF8;
+"34
+[; ;ver.c: 34:     (*(volatile __near unsigned char*)0xF93) = 0xF8;
 [e = *U -> -> 3987 `i `*VNuc -> -> 248 `i `uc ]
-"37
-[; ;ver.c: 37:     while (1) {
+"36
+[; ;ver.c: 36:     while (1) {
 [e :U 8 ]
 {
-"38
-[; ;ver.c: 38:         (*(volatile __near unsigned char*)0xF95) = 0x0F;
+"37
+[; ;ver.c: 37:         (*(volatile __near unsigned char*)0xF95) = 0x0F;
 [e = *U -> -> 3989 `i `*VNuc -> -> 15 `i `uc ]
-"39
-[; ;ver.c: 39:         tmp = tc_tecla(0) + 0x30;
+"38
+[; ;ver.c: 38:         tmp = tc_tecla(0) + 0x30;
 [e = _tmp -> + -> ( _tc_tecla (1 -> -> 0 `i `ui `i -> 48 `i `uc ]
-"40
-[; ;ver.c: 40:         (*(volatile __near unsigned char*)0xF95) = 0x00;
+"39
+[; ;ver.c: 39:         (*(volatile __near unsigned char*)0xF95) = 0x00;
 [e = *U -> -> 3989 `i `*VNuc -> -> 0 `i `uc ]
-"41
-[; ;ver.c: 41:         num = (tmp - '0');
-[e = _num - -> _tmp `ui -> 48 `ui ]
-"42
-[; ;ver.c: 42:         if (num == 0) {
-[e $ ! == _num -> -> 0 `i `ui 10  ]
+"40
+[; ;ver.c: 40:         if (tmp >= 0x3C) {
+[e $ ! >= -> _tmp `i -> 60 `i 10  ]
 {
-"43
-[; ;ver.c: 43:             break;
+"41
+[; ;ver.c: 41:             (((*(volatile __near unsigned char*)0xF94)) &= ~(1<<1));
+[e =& *U -> -> 3988 `i `*VNuc -> ~ << -> 1 `i -> 1 `i `uc ]
+"42
+[; ;ver.c: 42:             break;
 [e $U 9  ]
-"44
-[; ;ver.c: 44:         }
+"43
+[; ;ver.c: 43:         }
 }
 [e :U 10 ]
-"45
-[; ;ver.c: 45:     }
+"44
+[; ;ver.c: 44:     }
 }
 [e :U 7 ]
 [e $U 8  ]
 [e :U 9 ]
-"46
-[; ;ver.c: 46: }
+"45
+[; ;ver.c: 45: }
 [e :UE 3 ]
 }
 [p f _sprintf 8462336 ]
-[a 4C 48 45 86 111 108 116 97 114 0 ]
+[a 4C 35 32 45 32 86 111 108 116 97 114 0 ]
 [a 1C 37 46 49 102 0 ]
 [a 3C 32 76 0 ]
 [a 2C 65 116 117 97 108 58 32 0 ]

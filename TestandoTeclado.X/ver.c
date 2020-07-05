@@ -17,7 +17,7 @@ void ver_quantidade(double *vol) {
     lcd_str(y);
     lcd_str(" L");
     lcd_cmd(L_L2);
-    lcd_str("0-Voltar");
+    lcd_str("# - Voltar");
     lcd_cmd(L_L2);
 
     for (i = 0; i < 7; i++) {
@@ -28,8 +28,7 @@ void ver_quantidade(double *vol) {
      * Falta:
      * Adicionar o esquema dos Leds representarem o nível do tanque
      */
-
-    unsigned int num;
+    
     unsigned char tmp;
 
     TRISB = 0xF8;
@@ -38,8 +37,8 @@ void ver_quantidade(double *vol) {
         TRISD = 0x0F;
         tmp = tc_tecla(0) + 0x30;
         TRISD = 0x00;
-        num = (tmp - '0');
-        if (num == 0) {
+        if (tmp >= 0x3C) {
+            BitClr(TRISC, 1);
             break;
         }
     }

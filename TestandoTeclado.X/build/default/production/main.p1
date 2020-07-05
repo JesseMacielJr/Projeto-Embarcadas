@@ -167,87 +167,79 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 58:             opt = (tmp - '0');
 [e = _opt - -> _tmp `ui -> 48 `ui ]
 "59
-[; ;main.c: 59:             if (opt == 0) {
-[e $ ! == _opt -> -> 0 `i `ui 8  ]
+[; ;main.c: 59:             if (opt == 1) {
+[e $ ! == _opt -> -> 1 `i `ui 8  ]
 {
 "60
-[; ;main.c: 60:                 break;
-[e $U 7  ]
+[; ;main.c: 60:                 ver_quantidade(&volume);
+[e ( _ver_quantidade (1 &U _volume ]
 "61
-[; ;main.c: 61:             } else if (opt == 1) {
+[; ;main.c: 61:                 break;
+[e $U 7  ]
+"62
+[; ;main.c: 62:             } else if (opt == 2) {
 }
 [e $U 9  ]
 [e :U 8 ]
-[e $ ! == _opt -> -> 1 `i `ui 10  ]
+[e $ ! == _opt -> -> 2 `i `ui 10  ]
 {
-"62
-[; ;main.c: 62:                 ver_quantidade(&volume);
-[e ( _ver_quantidade (1 &U _volume ]
 "63
-[; ;main.c: 63:                 break;
-[e $U 7  ]
+[; ;main.c: 63:                 encher_tanque(&volume);
+[e ( _encher_tanque (1 &U _volume ]
 "64
-[; ;main.c: 64:             } else if (opt == 2) {
+[; ;main.c: 64:                 break;
+[e $U 7  ]
+"65
+[; ;main.c: 65:             } else if (opt == 3) {
 }
 [e $U 11  ]
 [e :U 10 ]
-[e $ ! == _opt -> -> 2 `i `ui 12  ]
+[e $ ! == _opt -> -> 3 `i `ui 12  ]
 {
-"65
-[; ;main.c: 65:                 encher_tanque(&volume);
-[e ( _encher_tanque (1 &U _volume ]
 "66
-[; ;main.c: 66:                 break;
-[e $U 7  ]
+[; ;main.c: 66:                 esvaziar_tanque(&volume);
+[e ( _esvaziar_tanque (1 &U _volume ]
 "67
-[; ;main.c: 67:             } else if (opt == 3) {
+[; ;main.c: 67:                 break;
+[e $U 7  ]
+"68
+[; ;main.c: 68:             } else {
 }
 [e $U 13  ]
 [e :U 12 ]
-[e $ ! == _opt -> -> 3 `i `ui 14  ]
 {
-"68
-[; ;main.c: 68:                 esvaziar_tanque(&volume);
-[e ( _esvaziar_tanque (1 &U _volume ]
 "69
-[; ;main.c: 69:                 break;
-[e $U 7  ]
-"70
-[; ;main.c: 70:             } else {
-}
-[e $U 15  ]
-[e :U 14 ]
-{
-"71
-[; ;main.c: 71:                 lcd_cmd(0x01);
+[; ;main.c: 69:                 lcd_cmd(0x01);
 [e ( _lcd_cmd (1 -> -> 1 `i `uc ]
-"72
-[; ;main.c: 72:                 lcd_str("    INVALIDO!");
+"70
+[; ;main.c: 70:                 lcd_str("    INVALIDO!");
 [e ( _lcd_str (1 :s 7C ]
-"73
-[; ;main.c: 73:                 break;
+"71
+[; ;main.c: 71:                 atraso_ms(200);
+[e ( _atraso_ms (1 -> 200 `i ]
+"72
+[; ;main.c: 72:                 break;
 [e $U 7  ]
-"74
-[; ;main.c: 74:             }
+"73
+[; ;main.c: 73:             }
 }
-[e :U 15 ]
 [e :U 13 ]
 [e :U 11 ]
 [e :U 9 ]
-"75
-[; ;main.c: 75:         }
+"74
+[; ;main.c: 74:         }
 }
 [e :U 5 ]
 [e $U 6  ]
 [e :U 7 ]
-"76
-[; ;main.c: 76:     }
+"75
+[; ;main.c: 75:     }
 }
 [e :U 2 ]
 [e $U 3  ]
 [e :U 4 ]
-"77
-[; ;main.c: 77: }
+"76
+[; ;main.c: 76: }
 [e :UE 1 ]
 }
 [a 4C 86 97 122 97 111 58 32 48 46 53 32 76 47 115 0 ]

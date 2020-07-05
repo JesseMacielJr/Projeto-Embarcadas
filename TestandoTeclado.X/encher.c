@@ -13,12 +13,9 @@ void encher_tanque(double *vol) {
     lcd_cmd(L_L1);
     lcd_str("Quant(L): ");
     lcd_cmd(L_L2);
-    lcd_str("RB1-voltar");
+    lcd_str("# - Voltar");
     lcd_cmd(L_L1 + 10);
-    //atraso_ms(1000);
-
-
-
+    
     unsigned int incremento;
 
     unsigned int i = 0;
@@ -32,7 +29,9 @@ void encher_tanque(double *vol) {
         tmp = tc_tecla(0) + 0x30;
         TRISD = 0x00;
         lcd_dat(tmp);
-        if (i == 0) {
+        if (tmp >= 0x3C) {
+            return;
+        } else if (i == 0) {
             num[i] = (tmp - '0')*10;
         } else {
             num[i] = (tmp - '0');
@@ -55,9 +54,7 @@ void encher_tanque(double *vol) {
         lcd_cmd(L_L1);
         lcd_str("ERRO: vol > MAX");
         lcd_cmd(L_L2);
-        lcd_str("RB1-Voltar");
-
-        BitClr(PORTC, 1);
+        lcd_str("# - Voltar");
 
         /* BUZZER */
         BitSet(TRISC, 1);
@@ -73,10 +70,8 @@ void encher_tanque(double *vol) {
         atraso_ms(500);
 
         ////////////OPERAÇÃO//////////////
-        int tempo = incremento / 2;
-        int t1, t2;
+        unsigned int i = 0, potencia = 100, t1, t2, tempo = incremento / 2;
         float porcento;
-        int i = 0, potencia = 100;
         int numeros[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D,
             0x07, 0x7F, 0x6F};
 
@@ -141,7 +136,7 @@ void encher_tanque(double *vol) {
         lcd_cmd(L_L1);
         lcd_str("    SUCESSO!");
         lcd_cmd(L_L2);
-        lcd_str("    0-Voltar");
+        lcd_str("   # - Voltar");
     }
 
     /*
@@ -149,16 +144,13 @@ void encher_tanque(double *vol) {
      * Adicionar o esquema dos Leds representarem o nível do tanque
      */
 
-    unsigned int opt;
-
     TRISB = 0xF8;
 
     while (1) {
         TRISD = 0x0F;
         tmp = tc_tecla(0) + 0x30;
         TRISD = 0x00;
-        opt = (tmp - '0');
-        if (opt == 0) {
+        if (tmp >= 0x3C) {
             BitClr(TRISC, 1);
             break;
         }

@@ -218,11 +218,8 @@ void encher_tanque(double *vol) {
     lcd_cmd(0x80);
     lcd_str("Quant(L): ");
     lcd_cmd(0xC0);
-    lcd_str("RB1-voltar");
+    lcd_str("# - Voltar");
     lcd_cmd(0x80 + 10);
-
-
-
 
     unsigned int incremento;
 
@@ -237,7 +234,9 @@ void encher_tanque(double *vol) {
         tmp = tc_tecla(0) + 0x30;
         (*(volatile __near unsigned char*)0xF95) = 0x00;
         lcd_dat(tmp);
-        if (i == 0) {
+        if (tmp >= 0x3C) {
+            return;
+        } else if (i == 0) {
             num[i] = (tmp - '0')*10;
         } else {
             num[i] = (tmp - '0');
@@ -260,9 +259,7 @@ void encher_tanque(double *vol) {
         lcd_cmd(0x80);
         lcd_str("ERRO: vol > MAX");
         lcd_cmd(0xC0);
-        lcd_str("RB1-Voltar");
-
-        (((*(volatile __near unsigned char*)0xF82)) &= ~(1<<1));
+        lcd_str("# - Voltar");
 
 
         (((*(volatile __near unsigned char*)0xF94)) |= (1<<1));
@@ -278,10 +275,8 @@ void encher_tanque(double *vol) {
         atraso_ms(500);
 
 
-        int tempo = incremento / 2;
-        int t1, t2;
+        unsigned int i = 0, potencia = 100, t1, t2, tempo = incremento / 2;
         float porcento;
-        int i = 0, potencia = 100;
         int numeros[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D,
             0x07, 0x7F, 0x6F};
 
@@ -346,7 +341,7 @@ void encher_tanque(double *vol) {
         lcd_cmd(0x80);
         lcd_str("    SUCESSO!");
         lcd_cmd(0xC0);
-        lcd_str("    0-Voltar");
+        lcd_str("   # - Voltar");
     }
 
 
@@ -354,16 +349,13 @@ void encher_tanque(double *vol) {
 
 
 
-    unsigned int opt;
-
     (*(volatile __near unsigned char*)0xF93) = 0xF8;
 
     while (1) {
         (*(volatile __near unsigned char*)0xF95) = 0x0F;
         tmp = tc_tecla(0) + 0x30;
         (*(volatile __near unsigned char*)0xF95) = 0x00;
-        opt = (tmp - '0');
-        if (opt == 0) {
+        if (tmp >= 0x3C) {
             (((*(volatile __near unsigned char*)0xF94)) &= ~(1<<1));
             break;
         }
