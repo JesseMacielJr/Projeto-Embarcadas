@@ -35,7 +35,7 @@ void main() {
     lcd_cmd(L_L1);
     lcd_str("Vol max = 70L");
     lcd_cmd(L_L2);
-    lcd_str("Vazao: 1.5 L/s");
+    lcd_str("Vazao: 0.5 L/s");
     atraso_ms(atrasoMin);
     lcd_cmd(L_CLR);
 
