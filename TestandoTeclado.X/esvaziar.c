@@ -73,7 +73,7 @@ void esvaziar_tanque(double *vol) {
         lcd_cmd(L_L1);
         lcd_str("    SUCESSO!");
         lcd_cmd(L_L2);
-        lcd_str("   RB1-Voltar");
+        lcd_str("    0-Voltar");
 
         //
         //Código do buzzer aqui
@@ -91,7 +91,19 @@ void esvaziar_tanque(double *vol) {
      * Adicionar o esquema dos Leds representarem o nível do tanque
      */
 
-    while((BitTst(PORTB, 1))){
+    unsigned int opt;
+    unsigned char tmp;
+
+    TRISB = 0xF8;
+
+    while (1) {
+        TRISD = 0x0F;
+        tmp = tc_tecla(0) + 0x30;
+        TRISD = 0x00;
+        opt = (tmp - '0');
+        if (opt == 0) {
+            break;
+        }
     }
     
 }

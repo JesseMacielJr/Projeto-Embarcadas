@@ -219,7 +219,7 @@ void encher_tanque(double *vol) {
     lcd_str("Quant(L): ");
     lcd_cmd(0xC0);
     lcd_str("RB1-voltar");
-    lcd_cmd(0x80 +10);
+    lcd_cmd(0x80 + 10);
 
 
 
@@ -232,7 +232,7 @@ void encher_tanque(double *vol) {
 
     (*(volatile __near unsigned char*)0xF93) = 0xF8;
 
-    while (i!=2) {
+    while (i != 2) {
         (*(volatile __near unsigned char*)0xF95) = 0x0F;
         tmp = tc_tecla(0) + 0x30;
         (*(volatile __near unsigned char*)0xF95) = 0x00;
@@ -245,10 +245,13 @@ void encher_tanque(double *vol) {
         i++;
     }
 
+    (*(volatile __near unsigned char*)0xF92) = 0x20;
+    (*(volatile __near unsigned char*)0xF93) = 0x3F;
+
     atraso_ms(500);
     lcd_cmd(0x01);
 
-    incremento = num[0]+num[1];
+    incremento = num[0] + num[1];
 
     if (*vol + incremento > 70) {
 
@@ -258,6 +261,8 @@ void encher_tanque(double *vol) {
         lcd_str("ERRO: vol > MAX");
         lcd_cmd(0xC0);
         lcd_str("RB1-Voltar");
+
+        (((*(volatile __near unsigned char*)0xF82)) &= ~(1<<1));
 
 
 
@@ -301,8 +306,14 @@ void encher_tanque(double *vol) {
         t1 = tempo / 10;
         t2 = tempo % 10;
         while ((t1 != 0) || (t2 != 0)) {
-            potencia = 100*(tempo-(t1*10)+t2)/tempo;
+
+
+
+
+            potencia = 100 * (tempo - (t1 * 10) + t2) / tempo;
             pwmSet1(potencia);
+
+
             (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
             (((*(volatile __near unsigned char*)0xF80)) |= (1<<4));
             (*(volatile __near unsigned char*)0xF83) = numeros[t1];
@@ -312,7 +323,7 @@ void encher_tanque(double *vol) {
             (*(volatile __near unsigned char*)0xF83) = numeros[t2];
             atraso_ms(5);
 
-            if(i == 40) {
+            if (i == 40) {
                 i = 0;
                 if (t2 == 0) {
                     t1--;
@@ -326,6 +337,8 @@ void encher_tanque(double *vol) {
         }
         pwmSet1(0);
 
+        (((*(volatile __near unsigned char*)0xF82)) &= ~(1<<1));
+
         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
 
 
@@ -333,7 +346,7 @@ void encher_tanque(double *vol) {
         lcd_cmd(0x80);
         lcd_str("    SUCESSO!");
         lcd_cmd(0xC0);
-        lcd_str("   RB1-Voltar");
+        lcd_str("    0-Voltar");
 
 
 
@@ -342,8 +355,19 @@ void encher_tanque(double *vol) {
 
 
     }
-# 148 "encher.c"
-    while(((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))){
+# 161 "encher.c"
+    unsigned int opt;
+
+    (*(volatile __near unsigned char*)0xF93) = 0xF8;
+
+    while (1) {
+        (*(volatile __near unsigned char*)0xF95) = 0x0F;
+        tmp = tc_tecla(0) + 0x30;
+        (*(volatile __near unsigned char*)0xF95) = 0x00;
+        opt = (tmp - '0');
+        if (opt == 0) {
+            break;
+        }
     }
 
 }

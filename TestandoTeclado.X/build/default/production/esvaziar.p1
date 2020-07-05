@@ -10,6 +10,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _atraso_ms `(v ~T0 @X0 0 ef1`i ]
 "113 D:\Programs\Microship\xc8\v2.20\pic\include\c99\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"8 ./teclado.h
+[; ;./teclado.h: 8:     unsigned char tc_tecla(unsigned int timeout);
+[v _tc_tecla `(uc ~T0 @X0 0 ef1`ui ]
 "8 esvaziar.c
 [; ;esvaziar.c: 8: void esvaziar_tanque(double *vol) {
 [v _esvaziar_tanque `(v ~T0 @X0 1 ef1`*d ]
@@ -166,33 +169,62 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;esvaziar.c: 75:         lcd_cmd(0xC0);
 [e ( _lcd_cmd (1 -> -> 192 `i `uc ]
 "76
-[; ;esvaziar.c: 76:         lcd_str("   RB1-Voltar");
+[; ;esvaziar.c: 76:         lcd_str("    0-Voltar");
 [e ( _lcd_str (1 :s 10C ]
 "84
 [; ;esvaziar.c: 84:     }
 }
 [e :U 5 ]
 "94
-[; ;esvaziar.c: 94:     while(((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))){
-[e $U 9  ]
+[; ;esvaziar.c: 94:     unsigned int opt;
+[v _opt `ui ~T0 @X0 1 a ]
+"95
+[; ;esvaziar.c: 95:     unsigned char tmp;
+[v _tmp `uc ~T0 @X0 1 a ]
+"97
+[; ;esvaziar.c: 97:     (*(volatile __near unsigned char*)0xF93) = 0xF8;
+[e = *U -> -> 3987 `i `*VNuc -> -> 248 `i `uc ]
+"99
+[; ;esvaziar.c: 99:     while (1) {
 [e :U 10 ]
 {
-"95
-[; ;esvaziar.c: 95:     }
+"100
+[; ;esvaziar.c: 100:         (*(volatile __near unsigned char*)0xF95) = 0x0F;
+[e = *U -> -> 3989 `i `*VNuc -> -> 15 `i `uc ]
+"101
+[; ;esvaziar.c: 101:         tmp = tc_tecla(0) + 0x30;
+[e = _tmp -> + -> ( _tc_tecla (1 -> -> 0 `i `ui `i -> 48 `i `uc ]
+"102
+[; ;esvaziar.c: 102:         (*(volatile __near unsigned char*)0xF95) = 0x00;
+[e = *U -> -> 3989 `i `*VNuc -> -> 0 `i `uc ]
+"103
+[; ;esvaziar.c: 103:         opt = (tmp - '0');
+[e = _opt - -> _tmp `ui -> 48 `ui ]
+"104
+[; ;esvaziar.c: 104:         if (opt == 0) {
+[e $ ! == _opt -> -> 0 `i `ui 12  ]
+{
+"105
+[; ;esvaziar.c: 105:             break;
+[e $U 11  ]
+"106
+[; ;esvaziar.c: 106:         }
+}
+[e :U 12 ]
+"107
+[; ;esvaziar.c: 107:     }
 }
 [e :U 9 ]
-"94
-[; ;esvaziar.c: 94:     while(((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))){
-[e $ != & -> *U -> -> 3969 `i `*VNuc `i << -> 1 `i -> 1 `i -> 0 `i 10  ]
+[e $U 10  ]
 [e :U 11 ]
-"97
-[; ;esvaziar.c: 97: }
+"109
+[; ;esvaziar.c: 109: }
 [e :UE 3 ]
 }
 [p f _sprintf 8462336 ]
 [a 2C 82 66 49 45 118 111 108 116 97 114 0 ]
-[a 10C 32 32 32 82 66 49 45 86 111 108 116 97 114 0 ]
 [a 4C 82 66 49 45 86 111 108 116 97 114 0 ]
+[a 10C 32 32 32 32 48 45 86 111 108 116 97 114 0 ]
 [a 5C 37 46 49 102 0 ]
 [a 6C 32 76 0 ]
 [a 3C 69 82 82 79 58 32 118 111 108 32 60 32 48 0 ]

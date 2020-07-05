@@ -25,12 +25,23 @@ void lcd_str(const char* str);
 # 1 "./pic18f4520.h" 1
 # 3 "ver.c" 2
 
+# 1 "./teclado.h" 1
+
+
+
+
+
+
+
+    unsigned char tc_tecla(unsigned int timeout);
+# 4 "ver.c" 2
+
 # 1 "./delay.h" 1
 
 
 
 void atraso_ms(int t);
-# 4 "ver.c" 2
+# 5 "ver.c" 2
 
 # 1 "D:\\Programs\\Microship\\xc8\\v2.20\\pic\\include\\c99\\stdio.h" 1 3
 
@@ -189,7 +200,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 5 "ver.c" 2
+# 6 "ver.c" 2
 
 
 void ver_quantidade(double *vol) {
@@ -204,7 +215,7 @@ void ver_quantidade(double *vol) {
     lcd_str(y);
     lcd_str(" L");
     lcd_cmd(0xC0);
-    lcd_str("RB1-Voltar");
+    lcd_str("0-Voltar");
     lcd_cmd(0xC0);
 
     for (i = 0; i < 7; i++) {
@@ -216,6 +227,18 @@ void ver_quantidade(double *vol) {
 
 
 
-    while(((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))){
+    unsigned int num;
+    unsigned char tmp;
+
+    (*(volatile __near unsigned char*)0xF93) = 0xF8;
+
+    while (1) {
+        (*(volatile __near unsigned char*)0xF95) = 0x0F;
+        tmp = tc_tecla(0) + 0x30;
+        (*(volatile __near unsigned char*)0xF95) = 0x00;
+        num = (tmp - '0');
+        if (num == 0) {
+            break;
+        }
     }
 }

@@ -78,6 +78,7 @@ void main() {
     (*(volatile __near unsigned char*)0xFC1) = 0x06;
     (*(volatile __near unsigned char*)0xF93) = 0x01;
     (*(volatile __near unsigned char*)0xF95) = 0x00;
+    (*(volatile __near unsigned char*)0xF95) = 0x00;
     (*(volatile __near unsigned char*)0xF96) = 0x00;
 
     lcd_init();
@@ -95,7 +96,7 @@ void main() {
     lcd_cmd(0x80);
     lcd_str("Vol max = 70L");
     lcd_cmd(0xC0);
-    lcd_str("Vazao: 1.5 L/s");
+    lcd_str("Vazao: 0.5 L/s");
     atraso_ms(atrasoMin);
     lcd_cmd(0x01);
 
@@ -106,17 +107,9 @@ void main() {
         flag = 0;
         lcd_cmd(0x01);
         lcd_cmd(0x80);
-        lcd_str("RB3-Ver RB4-Encher");
+        lcd_str("1-Ver 2-Encher");
         lcd_cmd(0xC0);
-        lcd_str("RB5-Retirar");
-        for (i = 0; i < 2; i++) {
-            atraso_ms(350);
-            lcd_cmd(0x18);
-        }
-        for (i = 0; i < 2; i++) {
-            atraso_ms(350);
-            lcd_cmd(0x1C);
-        }
+        lcd_str("3-Retirar");
 
 
         (*(volatile __near unsigned char*)0xF93) = 0xF8;
@@ -125,20 +118,30 @@ void main() {
         (*(volatile __near unsigned char*)0xF92) = 0x20;
         (*(volatile __near unsigned char*)0xF93) = 0x3F;
         (*(volatile __near unsigned char*)0xF96) = 0x00;
-# 78 "main.c"
+# 72 "main.c"
+        unsigned int opt;
+        unsigned char tmp;
+
+        (*(volatile __near unsigned char*)0xF93) = 0xF8;
+
         while (1) {
-            if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))) {
-                break;
-            }
-            else if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<3)))) {
-                ver_quantidade(&volume);
-            }
-            else if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<4)))) {
-                encher_tanque(&volume);
-            }
-            else if (!((((*(volatile __near unsigned char*)0xF81)) & (1<<5)))) {
-                esvaziar_tanque(&volume);
-            }
+            (*(volatile __near unsigned char*)0xF95) = 0x0F;
+            tmp = tc_tecla(0) + 0x30;
+            (*(volatile __near unsigned char*)0xF95) = 0x00;
+            opt = (tmp - '0');
+        if (opt == 0) {
+            break;
+        } else if (opt == 1) {
+            ver_quantidade(&volume);
+        } else if (opt == 2) {
+            encher_tanque(&volume);
+        } else if (opt == 3) {
+            esvaziar_tanque(&volume);
+        } else {
+            lcd_cmd(0x01);
+            lcd_str("    INVALIDO!");
+            break;
         }
     }
+}
 }

@@ -18,6 +18,7 @@ void main() {
     ADCON1 = 0x06;
     TRISB = 0x01;
     TRISD = 0x00;
+    TRISD = 0x00;
     TRISE = 0x00;
 
     lcd_init();
@@ -46,17 +47,9 @@ void main() {
         flag = 0;
         lcd_cmd(L_CLR);
         lcd_cmd(L_L1);
-        lcd_str("RB3-Ver RB4-Encher");
+        lcd_str("1-Ver 2-Encher");
         lcd_cmd(L_L2);
-        lcd_str("RB5-Retirar");
-        for (i = 0; i < 2; i++) {
-            atraso_ms(350);
-            lcd_cmd(0x18);
-        }
-        for (i = 0; i < 2; i++) {
-            atraso_ms(350);
-            lcd_cmd(0x1C);
-        }
+        lcd_str("3-Retirar");
 
         //Teclado numérico
         TRISB = 0xF8;
@@ -75,19 +68,30 @@ void main() {
          * Implementar o Cooler
          * Implementar as mensagens de erro/sucesso das operações
          */
+        
+        unsigned int opt;
+        unsigned char tmp;
+        
+        TRISB = 0xF8;
+    
         while (1) {
-            if (!(BitTst(PORTB, 1))) {
-                break;
-            }
-            else if (!(BitTst(PORTB, 3))) {
-                ver_quantidade(&volume);
-            }
-            else if (!(BitTst(PORTB, 4))) {
-                encher_tanque(&volume);
-            }
-            else if (!(BitTst(PORTB, 5))) {
-                esvaziar_tanque(&volume);
-            }
+            TRISD = 0x0F;
+            tmp = tc_tecla(0) + 0x30;
+            TRISD = 0x00;
+            opt = (tmp - '0');
+        if (opt == 0) {
+            break;
+        } else if (opt == 1) {
+            ver_quantidade(&volume);
+        } else if (opt == 2) {
+            encher_tanque(&volume);
+        } else if (opt == 3) {
+            esvaziar_tanque(&volume);
+        } else {
+            lcd_cmd(L_CLR);
+            lcd_str("    INVALIDO!");
+            break; 
         }
     }
+}
 }

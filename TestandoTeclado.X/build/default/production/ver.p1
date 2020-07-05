@@ -7,83 +7,115 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17
 [; ;./lcd.h: 17: void lcd_str(const char* str);
 [v _lcd_str `(v ~T0 @X0 0 ef1`*Cuc ]
-"7 ver.c
-[; ;ver.c: 7: void ver_quantidade(double *vol) {
+"8 ./teclado.h
+[; ;./teclado.h: 8:     unsigned char tc_tecla(unsigned int timeout);
+[v _tc_tecla `(uc ~T0 @X0 0 ef1`ui ]
+"8 ver.c
+[; ;ver.c: 8: void ver_quantidade(double *vol) {
 [v _ver_quantidade `(v ~T0 @X0 1 ef1`*d ]
 {
 [e :U _ver_quantidade ]
 [v _vol `*d ~T0 @X0 1 r1 ]
 [f ]
-"9
-[; ;ver.c: 9:     int i;
-[v _i `i ~T0 @X0 1 a ]
 "10
-[; ;ver.c: 10:     char y[8];
-[v _y `uc ~T0 @X0 -> 8 `i a ]
+[; ;ver.c: 10:     int i;
+[v _i `i ~T0 @X0 1 a ]
 "11
-[; ;ver.c: 11:     sprintf(y, "%.1f", *vol);
+[; ;ver.c: 11:     char y[8];
+[v _y `uc ~T0 @X0 -> 8 `i a ]
+"12
+[; ;ver.c: 12:     sprintf(y, "%.1f", *vol);
 [e ( _sprintf (1 , (. , &U _y :s 1C *U _vol ]
-"13
-[; ;ver.c: 13:     lcd_cmd(0x01);
-[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
 "14
-[; ;ver.c: 14:     lcd_cmd(0x80);
-[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
+[; ;ver.c: 14:     lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
 "15
-[; ;ver.c: 15:     lcd_str("Atual: ");
-[e ( _lcd_str (1 :s 2C ]
+[; ;ver.c: 15:     lcd_cmd(0x80);
+[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
 "16
-[; ;ver.c: 16:     lcd_str(y);
-[e ( _lcd_str (1 -> &U _y `*Cuc ]
+[; ;ver.c: 16:     lcd_str("Atual: ");
+[e ( _lcd_str (1 :s 2C ]
 "17
-[; ;ver.c: 17:     lcd_str(" L");
-[e ( _lcd_str (1 :s 3C ]
+[; ;ver.c: 17:     lcd_str(y);
+[e ( _lcd_str (1 -> &U _y `*Cuc ]
 "18
-[; ;ver.c: 18:     lcd_cmd(0xC0);
-[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+[; ;ver.c: 18:     lcd_str(" L");
+[e ( _lcd_str (1 :s 3C ]
 "19
-[; ;ver.c: 19:     lcd_str("RB1-Voltar");
-[e ( _lcd_str (1 :s 4C ]
-"20
-[; ;ver.c: 20:     lcd_cmd(0xC0);
+[; ;ver.c: 19:     lcd_cmd(0xC0);
 [e ( _lcd_cmd (1 -> -> 192 `i `uc ]
-"22
-[; ;ver.c: 22:     for (i = 0; i < 7; i++) {
+"20
+[; ;ver.c: 20:     lcd_str("0-Voltar");
+[e ( _lcd_str (1 :s 4C ]
+"21
+[; ;ver.c: 21:     lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"23
+[; ;ver.c: 23:     for (i = 0; i < 7; i++) {
 {
 [e = _i -> 0 `i ]
 [e $ < _i -> 7 `i 4  ]
 [e $U 5  ]
 [e :U 4 ]
 {
-"23
-[; ;ver.c: 23:         lcd_cmd(0x10);
-[e ( _lcd_cmd (1 -> -> 16 `i `uc ]
 "24
-[; ;ver.c: 24:     }
+[; ;ver.c: 24:         lcd_cmd(0x10);
+[e ( _lcd_cmd (1 -> -> 16 `i `uc ]
+"25
+[; ;ver.c: 25:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 7 `i 4  ]
 [e :U 5 ]
 }
-"31
-[; ;ver.c: 31:     while(((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))){
-[e $U 7  ]
+"32
+[; ;ver.c: 32:     unsigned int num;
+[v _num `ui ~T0 @X0 1 a ]
+"33
+[; ;ver.c: 33:     unsigned char tmp;
+[v _tmp `uc ~T0 @X0 1 a ]
+"35
+[; ;ver.c: 35:     (*(volatile __near unsigned char*)0xF93) = 0xF8;
+[e = *U -> -> 3987 `i `*VNuc -> -> 248 `i `uc ]
+"37
+[; ;ver.c: 37:     while (1) {
 [e :U 8 ]
 {
-"32
-[; ;ver.c: 32:     }
+"38
+[; ;ver.c: 38:         (*(volatile __near unsigned char*)0xF95) = 0x0F;
+[e = *U -> -> 3989 `i `*VNuc -> -> 15 `i `uc ]
+"39
+[; ;ver.c: 39:         tmp = tc_tecla(0) + 0x30;
+[e = _tmp -> + -> ( _tc_tecla (1 -> -> 0 `i `ui `i -> 48 `i `uc ]
+"40
+[; ;ver.c: 40:         (*(volatile __near unsigned char*)0xF95) = 0x00;
+[e = *U -> -> 3989 `i `*VNuc -> -> 0 `i `uc ]
+"41
+[; ;ver.c: 41:         num = (tmp - '0');
+[e = _num - -> _tmp `ui -> 48 `ui ]
+"42
+[; ;ver.c: 42:         if (num == 0) {
+[e $ ! == _num -> -> 0 `i `ui 10  ]
+{
+"43
+[; ;ver.c: 43:             break;
+[e $U 9  ]
+"44
+[; ;ver.c: 44:         }
+}
+[e :U 10 ]
+"45
+[; ;ver.c: 45:     }
 }
 [e :U 7 ]
-"31
-[; ;ver.c: 31:     while(((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))){
-[e $ != & -> *U -> -> 3969 `i `*VNuc `i << -> 1 `i -> 1 `i -> 0 `i 8  ]
+[e $U 8  ]
 [e :U 9 ]
-"33
-[; ;ver.c: 33: }
+"46
+[; ;ver.c: 46: }
 [e :UE 3 ]
 }
 [p f _sprintf 8462336 ]
-[a 4C 82 66 49 45 86 111 108 116 97 114 0 ]
+[a 4C 48 45 86 111 108 116 97 114 0 ]
 [a 1C 37 46 49 102 0 ]
 [a 3C 32 76 0 ]
 [a 2C 65 116 117 97 108 58 32 0 ]

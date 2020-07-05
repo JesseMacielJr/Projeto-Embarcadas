@@ -8,20 +8,23 @@
 # 2 "<built-in>" 2
 # 1 "lcd.c" 2
 # 1 "./pic18f4520.h" 1
-# 2 "lcd.c" 2
+# 1 "lcd.c" 2
+
 # 1 "./lcd.h" 1
 # 14 "./lcd.h"
 void lcd_init(void);
 void lcd_cmd(unsigned char val);
 void lcd_dat(unsigned char val);
 void lcd_str(const char* str);
-# 3 "lcd.c" 2
+# 2 "lcd.c" 2
+
 # 1 "./delay.h" 1
 
 
 
 void atraso_ms(int t);
-# 4 "lcd.c" 2
+# 3 "lcd.c" 2
+
 
 void lcd_wr(unsigned char val) {
     (*(volatile __near unsigned char*)0xF83) = val;

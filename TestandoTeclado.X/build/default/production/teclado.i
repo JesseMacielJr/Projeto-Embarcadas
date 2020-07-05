@@ -8,7 +8,8 @@
 # 2 "<built-in>" 2
 # 1 "teclado.c" 2
 # 1 "./pic18f4520.h" 1
-# 2 "teclado.c" 2
+# 1 "teclado.c" 2
+
 # 1 "./teclado.h" 1
 
 
@@ -18,13 +19,15 @@
 
 
     unsigned char tc_tecla(unsigned int timeout);
-# 3 "teclado.c" 2
+# 2 "teclado.c" 2
+
 # 1 "./delay.h" 1
 
 
 
 void atraso_ms(int t);
-# 4 "teclado.c" 2
+# 3 "teclado.c" 2
+
 
 
 

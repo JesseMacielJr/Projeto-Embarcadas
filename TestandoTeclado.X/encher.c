@@ -14,20 +14,20 @@ void encher_tanque(double *vol) {
     lcd_str("Quant(L): ");
     lcd_cmd(L_L2);
     lcd_str("RB1-voltar");
-    lcd_cmd(L_L1+10);
+    lcd_cmd(L_L1 + 10);
     //atraso_ms(1000);
-    
-    
-    
+
+
+
     unsigned int incremento;
 
     unsigned int i = 0;
     unsigned int num[2];
     unsigned char tmp;
-    
+
     TRISB = 0xF8;
-    
-    while (i!=2) {
+
+    while (i != 2) {
         TRISD = 0x0F;
         tmp = tc_tecla(0) + 0x30;
         TRISD = 0x00;
@@ -39,12 +39,15 @@ void encher_tanque(double *vol) {
         }
         i++;
     }
-    
+
+    TRISA = 0x20;
+    TRISB = 0x3F;
+
     atraso_ms(500);
     lcd_cmd(L_CLR);
-    
-    incremento = num[0]+num[1];
-    
+
+    incremento = num[0] + num[1];
+
     if (*vol + incremento > 70) {
 
         //Mensagem falha
@@ -53,6 +56,8 @@ void encher_tanque(double *vol) {
         lcd_str("ERRO: vol > MAX");
         lcd_cmd(L_L2);
         lcd_str("RB1-Voltar");
+
+        BitClr(PORTC, 1);
 
         //
         //Código do buzzer aqui
@@ -89,9 +94,9 @@ void encher_tanque(double *vol) {
         //
         //Código do Cooler (fazer com que seja simultâneo ao Display)
         //
-        
+
         pwmInit();
-        
+
         //Timer para finalização
         t1 = tempo / 10;
         t2 = tempo % 10;
@@ -100,9 +105,9 @@ void encher_tanque(double *vol) {
              * cooler ser linear de acordo
              * com o restante de tempo 
              */
-            potencia = 100*(tempo-(t1*10)+t2)/tempo; 
+            potencia = 100 * (tempo - (t1 * 10) + t2) / tempo;
             pwmSet1(potencia);
-            
+
             //print nos displays
             BitClr(PORTA, 5);
             BitSet(PORTA, 4);
@@ -112,8 +117,8 @@ void encher_tanque(double *vol) {
             BitClr(PORTA, 4); //liga o 2o display
             PORTD = numeros[t2];
             atraso_ms(5);
-            
-            if(i == 40) {
+
+            if (i == 40) {
                 i = 0;
                 if (t2 == 0) {
                     t1--;
@@ -123,10 +128,12 @@ void encher_tanque(double *vol) {
                 }
             } else {
                 i++;
-            } 
+            }
         }
         pwmSet1(0);
-        
+
+        BitClr(PORTC, 1);
+
         BitClr(PORTA, 5);
 
         //Mensagem êxito
@@ -134,7 +141,7 @@ void encher_tanque(double *vol) {
         lcd_cmd(L_L1);
         lcd_str("    SUCESSO!");
         lcd_cmd(L_L2);
-        lcd_str("   RB1-Voltar");
+        lcd_str("    0-Voltar");
 
         //
         //Código do buzzer aqui
@@ -151,7 +158,18 @@ void encher_tanque(double *vol) {
      * Buzzer
      */
 
-    while((BitTst(PORTB, 1))){
+    unsigned int opt;
+
+    TRISB = 0xF8;
+
+    while (1) {
+        TRISD = 0x0F;
+        tmp = tc_tecla(0) + 0x30;
+        TRISD = 0x00;
+        opt = (tmp - '0');
+        if (opt == 0) {
+            break;
+        }
     }
-    
+
 }

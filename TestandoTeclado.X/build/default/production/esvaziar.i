@@ -271,7 +271,7 @@ void esvaziar_tanque(double *vol) {
         lcd_cmd(0x80);
         lcd_str("    SUCESSO!");
         lcd_cmd(0xC0);
-        lcd_str("   RB1-Voltar");
+        lcd_str("    0-Voltar");
 
 
 
@@ -281,7 +281,19 @@ void esvaziar_tanque(double *vol) {
 
     }
 # 94 "esvaziar.c"
-    while(((((*(volatile __near unsigned char*)0xF81)) & (1<<1)))){
+    unsigned int opt;
+    unsigned char tmp;
+
+    (*(volatile __near unsigned char*)0xF93) = 0xF8;
+
+    while (1) {
+        (*(volatile __near unsigned char*)0xF95) = 0x0F;
+        tmp = tc_tecla(0) + 0x30;
+        (*(volatile __near unsigned char*)0xF95) = 0x00;
+        opt = (tmp - '0');
+        if (opt == 0) {
+            break;
+        }
     }
 
 }
