@@ -114,9 +114,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "48
 [; ;esvaziar.c: 48:         (*(volatile __near unsigned char*)0xF92) = 0x00;
 [e = *U -> -> 3986 `i `*VNuc -> -> 0 `i `uc ]
-"49
-[; ;esvaziar.c: 49:         (((*(volatile __near unsigned char*)0xF80)) |= (1<<5));
-[e =| *U -> -> 3968 `i `*VNuc -> << -> 1 `i -> 5 `i `uc ]
 "54
 [; ;esvaziar.c: 54:         lcd_cmd(0x01);
 [e ( _lcd_cmd (1 -> -> 1 `i `uc ]

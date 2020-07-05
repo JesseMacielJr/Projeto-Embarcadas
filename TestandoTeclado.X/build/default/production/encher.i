@@ -265,7 +265,7 @@ void encher_tanque(double *vol) {
         (((*(volatile __near unsigned char*)0xF82)) &= ~(1<<1));
 
 
-
+        (((*(volatile __near unsigned char*)0xF94)) |= (1<<1));
 
 
     } else {
@@ -280,25 +280,18 @@ void encher_tanque(double *vol) {
 
         int tempo = incremento / 2;
         int t1, t2;
+        float porcento;
         int i = 0, potencia = 100;
         int numeros[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D,
             0x07, 0x7F, 0x6F};
 
         (*(volatile __near unsigned char*)0xF92) = 0x00;
 
-        (((*(volatile __near unsigned char*)0xF80)) |= (1<<4));
-
-
-
         lcd_cmd(0x01);
         lcd_cmd(0x80);
         lcd_str("Enchendo...");
         lcd_cmd(0xC0);
         lcd_str("Aguarde!");
-
-
-
-
 
         pwmInit();
 
@@ -310,7 +303,11 @@ void encher_tanque(double *vol) {
 
 
 
-            potencia = 100 * (tempo - (t1 * 10) + t2) / tempo;
+            porcento = ((((float) t1 * 10.0) + (float) t2) / (float) tempo);
+            potencia = 100 * porcento;
+            if (potencia == 100) {
+                potencia = 99;
+            }
             pwmSet1(potencia);
 
 
@@ -337,9 +334,12 @@ void encher_tanque(double *vol) {
         }
         pwmSet1(0);
 
-        (((*(volatile __near unsigned char*)0xF82)) &= ~(1<<1));
+
+        (((*(volatile __near unsigned char*)0xF94)) |= (1<<1));
+
 
         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
+        (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<4));
 
 
         lcd_cmd(0x01);
@@ -347,15 +347,13 @@ void encher_tanque(double *vol) {
         lcd_str("    SUCESSO!");
         lcd_cmd(0xC0);
         lcd_str("    0-Voltar");
-
-
-
-
-
-
-
     }
-# 161 "encher.c"
+
+
+
+
+
+
     unsigned int opt;
 
     (*(volatile __near unsigned char*)0xF93) = 0xF8;
@@ -366,6 +364,7 @@ void encher_tanque(double *vol) {
         (*(volatile __near unsigned char*)0xF95) = 0x00;
         opt = (tmp - '0');
         if (opt == 0) {
+            (((*(volatile __near unsigned char*)0xF94)) &= ~(1<<1));
             break;
         }
     }

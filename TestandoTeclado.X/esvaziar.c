@@ -46,7 +46,7 @@ void esvaziar_tanque(double *vol) {
             0x07, 0x7F, 0x6F};
 
         TRISA = 0x00; //config da porta A;
-        BitSet(PORTA, 5); //liga o 1o display
+        //BitSet(PORTA, 5); //liga o 1o display
         //BitSet(PORTA, 4); //liga o 2o display
         //BitSet(PORTA, 3); //liga o 3o display
         //BitSet(PORTA, 2); //liga o 4o display;

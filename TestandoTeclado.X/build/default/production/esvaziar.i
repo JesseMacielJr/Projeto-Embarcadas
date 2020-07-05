@@ -244,7 +244,7 @@ void esvaziar_tanque(double *vol) {
             0x07, 0x7F, 0x6F};
 
         (*(volatile __near unsigned char*)0xF92) = 0x00;
-        (((*(volatile __near unsigned char*)0xF80)) |= (1<<5));
+
 
 
 

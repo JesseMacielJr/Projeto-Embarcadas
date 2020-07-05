@@ -59,9 +59,9 @@ void encher_tanque(double *vol) {
 
         BitClr(PORTC, 1);
 
-        //
-        //Código do buzzer aqui
-        //
+        /* BUZZER */
+        BitSet(TRISC, 1);
+        /* FIM BUZZER */
 
     } else {
 
@@ -75,25 +75,18 @@ void encher_tanque(double *vol) {
         ////////////OPERAÇÃO//////////////
         int tempo = incremento / 2;
         int t1, t2;
+        float porcento;
         int i = 0, potencia = 100;
         int numeros[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D,
             0x07, 0x7F, 0x6F};
 
         TRISA = 0x00; //config da porta A;
-        //BitSet(PORTA, 5); //liga o 1o display
-        BitSet(PORTA, 4); //liga o 2o display
-        //BitSet(PORTA, 3); //liga o 3o display
-        //BitSet(PORTA, 2); //liga o 4o display;
 
         lcd_cmd(L_CLR);
         lcd_cmd(L_L1);
         lcd_str("Enchendo...");
         lcd_cmd(L_L2);
         lcd_str("Aguarde!");
-
-        //
-        //Código do Cooler (fazer com que seja simultâneo ao Display)
-        //
 
         pwmInit();
 
@@ -105,7 +98,11 @@ void encher_tanque(double *vol) {
              * cooler ser linear de acordo
              * com o restante de tempo 
              */
-            potencia = 100 * (tempo - (t1 * 10) + t2) / tempo;
+            porcento = ((((float) t1 * 10.0) + (float) t2) / (float) tempo);
+            potencia = 100 * porcento;
+            if (potencia == 100) {
+                potencia = 99;
+            }
             pwmSet1(potencia);
 
             //print nos displays
@@ -113,8 +110,8 @@ void encher_tanque(double *vol) {
             BitSet(PORTA, 4);
             PORTD = numeros[t1];
             atraso_ms(5);
-            BitSet(PORTA, 5); //liga o 1o display
-            BitClr(PORTA, 4); //liga o 2o display
+            BitSet(PORTA, 5);
+            BitClr(PORTA, 4);
             PORTD = numeros[t2];
             atraso_ms(5);
 
@@ -131,10 +128,13 @@ void encher_tanque(double *vol) {
             }
         }
         pwmSet1(0);
-
-        BitClr(PORTC, 1);
-
+        
+        /* BUZZER */
+        BitSet(TRISC, 1);
+        /* FIM BUZZER */
+        
         BitClr(PORTA, 5);
+        BitClr(PORTA, 4);
 
         //Mensagem êxito
         lcd_cmd(L_CLR);
@@ -142,20 +142,11 @@ void encher_tanque(double *vol) {
         lcd_str("    SUCESSO!");
         lcd_cmd(L_L2);
         lcd_str("    0-Voltar");
-
-        //
-        //Código do buzzer aqui
-        //
-
-        ////////////OPERAÇÃO//////////////
-
     }
 
     /*
      * Falta:
      * Adicionar o esquema dos Leds representarem o nível do tanque
-     * Cooler
-     * Buzzer
      */
 
     unsigned int opt;
@@ -168,6 +159,7 @@ void encher_tanque(double *vol) {
         TRISD = 0x00;
         opt = (tmp - '0');
         if (opt == 0) {
+            BitClr(TRISC, 1);
             break;
         }
     }

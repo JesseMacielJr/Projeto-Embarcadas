@@ -148,6 +148,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "60
 [; ;encher.c: 60:         (((*(volatile __near unsigned char*)0xF82)) &= ~(1<<1));
 [e =& *U -> -> 3970 `i `*VNuc -> ~ << -> 1 `i -> 1 `i `uc ]
+"63
+[; ;encher.c: 63:         (((*(volatile __near unsigned char*)0xF94)) |= (1<<1));
+[e =| *U -> -> 3988 `i `*VNuc -> << -> 1 `i -> 1 `i `uc ]
 "66
 [; ;encher.c: 66:     } else {
 }
@@ -181,16 +184,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _t1 `i ~T0 @X0 1 a ]
 [v _t2 `i ~T0 @X0 1 a ]
 "78
-[; ;encher.c: 78:         int i = 0, potencia = 100;
+[; ;encher.c: 78:         float porcento;
+[v _porcento `f ~T0 @X0 1 a ]
+"79
+[; ;encher.c: 79:         int i = 0, potencia = 100;
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [v _potencia `i ~T0 @X0 1 a ]
 [e = _potencia -> 100 `i ]
-[v F355 `i ~T0 @X0 -> 10 `i s ]
-[i F355
+[v F356 `i ~T0 @X0 -> 10 `i s ]
+[i F356
 :U ..
-"79
-[; ;encher.c: 79:         int numeros[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D,
+"80
+[; ;encher.c: 80:         int numeros[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D,
 -> 63 `i
 -> 6 `i
 -> 91 `i
@@ -204,132 +210,146 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _numeros `i ~T0 @X0 -> 10 `i a ]
-[e = _numeros F355 ]
-"82
-[; ;encher.c: 82:         (*(volatile __near unsigned char*)0xF92) = 0x00;
+[e = _numeros F356 ]
+"83
+[; ;encher.c: 83:         (*(volatile __near unsigned char*)0xF92) = 0x00;
 [e = *U -> -> 3986 `i `*VNuc -> -> 0 `i `uc ]
-"84
-[; ;encher.c: 84:         (((*(volatile __near unsigned char*)0xF80)) |= (1<<4));
-[e =| *U -> -> 3968 `i `*VNuc -> << -> 1 `i -> 4 `i `uc ]
-"88
-[; ;encher.c: 88:         lcd_cmd(0x01);
+"85
+[; ;encher.c: 85:         lcd_cmd(0x01);
 [e ( _lcd_cmd (1 -> -> 1 `i `uc ]
-"89
-[; ;encher.c: 89:         lcd_cmd(0x80);
+"86
+[; ;encher.c: 86:         lcd_cmd(0x80);
 [e ( _lcd_cmd (1 -> -> 128 `i `uc ]
-"90
-[; ;encher.c: 90:         lcd_str("Enchendo...");
+"87
+[; ;encher.c: 87:         lcd_str("Enchendo...");
 [e ( _lcd_str (1 :s 7C ]
-"91
-[; ;encher.c: 91:         lcd_cmd(0xC0);
+"88
+[; ;encher.c: 88:         lcd_cmd(0xC0);
 [e ( _lcd_cmd (1 -> -> 192 `i `uc ]
-"92
-[; ;encher.c: 92:         lcd_str("Aguarde!");
+"89
+[; ;encher.c: 89:         lcd_str("Aguarde!");
 [e ( _lcd_str (1 :s 8C ]
-"98
-[; ;encher.c: 98:         pwmInit();
+"91
+[; ;encher.c: 91:         pwmInit();
 [e ( _pwmInit ..  ]
-"101
-[; ;encher.c: 101:         t1 = tempo / 10;
+"94
+[; ;encher.c: 94:         t1 = tempo / 10;
 [e = _t1 / _tempo -> 10 `i ]
-"102
-[; ;encher.c: 102:         t2 = tempo % 10;
+"95
+[; ;encher.c: 95:         t2 = tempo % 10;
 [e = _t2 % _tempo -> 10 `i ]
-"103
-[; ;encher.c: 103:         while ((t1 != 0) || (t2 != 0)) {
+"96
+[; ;encher.c: 96:         while ((t1 != 0) || (t2 != 0)) {
 [e $U 11  ]
 [e :U 12 ]
 {
-"108
-[; ;encher.c: 108:             potencia = 100 * (tempo - (t1 * 10) + t2) / tempo;
-[e = _potencia / * -> 100 `i + - _tempo * _t1 -> 10 `i _t2 _tempo ]
-"109
-[; ;encher.c: 109:             pwmSet1(potencia);
-[e ( _pwmSet1 (1 -> _potencia `uc ]
-"112
-[; ;encher.c: 112:             (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
-[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 5 `i `uc ]
-"113
-[; ;encher.c: 113:             (((*(volatile __near unsigned char*)0xF80)) |= (1<<4));
-[e =| *U -> -> 3968 `i `*VNuc -> << -> 1 `i -> 4 `i `uc ]
-"114
-[; ;encher.c: 114:             (*(volatile __near unsigned char*)0xF83) = numeros[t1];
-[e = *U -> -> 3971 `i `*VNuc -> *U + &U _numeros * -> -> _t1 `ui `ux -> -> # *U &U _numeros `ui `ux `uc ]
-"115
-[; ;encher.c: 115:             atraso_ms(5);
-[e ( _atraso_ms (1 -> 5 `i ]
-"116
-[; ;encher.c: 116:             (((*(volatile __near unsigned char*)0xF80)) |= (1<<5));
-[e =| *U -> -> 3968 `i `*VNuc -> << -> 1 `i -> 5 `i `uc ]
-"117
-[; ;encher.c: 117:             (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<4));
-[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 4 `i `uc ]
-"118
-[; ;encher.c: 118:             (*(volatile __near unsigned char*)0xF83) = numeros[t2];
-[e = *U -> -> 3971 `i `*VNuc -> *U + &U _numeros * -> -> _t2 `ui `ux -> -> # *U &U _numeros `ui `ux `uc ]
-"119
-[; ;encher.c: 119:             atraso_ms(5);
-[e ( _atraso_ms (1 -> 5 `i ]
-"121
-[; ;encher.c: 121:             if (i == 40) {
-[e $ ! == _i -> 40 `i 14  ]
+"101
+[; ;encher.c: 101:             porcento = ((((float) t1 * 10.0) + (float) t2) / (float) tempo);
+[e = _porcento -> / + * -> -> _t1 `f `d .10.0 -> -> _t2 `f `d -> -> _tempo `f `d `f ]
+"102
+[; ;encher.c: 102:             potencia = 100 * porcento;
+[e = _potencia -> * -> -> 100 `i `f _porcento `i ]
+"103
+[; ;encher.c: 103:             if (potencia == 100) {
+[e $ ! == _potencia -> 100 `i 14  ]
 {
-"122
-[; ;encher.c: 122:                 i = 0;
+"104
+[; ;encher.c: 104:                 potencia = 99;
+[e = _potencia -> 99 `i ]
+"105
+[; ;encher.c: 105:             }
+}
+[e :U 14 ]
+"106
+[; ;encher.c: 106:             pwmSet1(potencia);
+[e ( _pwmSet1 (1 -> _potencia `uc ]
+"109
+[; ;encher.c: 109:             (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 5 `i `uc ]
+"110
+[; ;encher.c: 110:             (((*(volatile __near unsigned char*)0xF80)) |= (1<<4));
+[e =| *U -> -> 3968 `i `*VNuc -> << -> 1 `i -> 4 `i `uc ]
+"111
+[; ;encher.c: 111:             (*(volatile __near unsigned char*)0xF83) = numeros[t1];
+[e = *U -> -> 3971 `i `*VNuc -> *U + &U _numeros * -> -> _t1 `ui `ux -> -> # *U &U _numeros `ui `ux `uc ]
+"112
+[; ;encher.c: 112:             atraso_ms(5);
+[e ( _atraso_ms (1 -> 5 `i ]
+"113
+[; ;encher.c: 113:             (((*(volatile __near unsigned char*)0xF80)) |= (1<<5));
+[e =| *U -> -> 3968 `i `*VNuc -> << -> 1 `i -> 5 `i `uc ]
+"114
+[; ;encher.c: 114:             (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<4));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 4 `i `uc ]
+"115
+[; ;encher.c: 115:             (*(volatile __near unsigned char*)0xF83) = numeros[t2];
+[e = *U -> -> 3971 `i `*VNuc -> *U + &U _numeros * -> -> _t2 `ui `ux -> -> # *U &U _numeros `ui `ux `uc ]
+"116
+[; ;encher.c: 116:             atraso_ms(5);
+[e ( _atraso_ms (1 -> 5 `i ]
+"118
+[; ;encher.c: 118:             if (i == 40) {
+[e $ ! == _i -> 40 `i 15  ]
+{
+"119
+[; ;encher.c: 119:                 i = 0;
 [e = _i -> 0 `i ]
+"120
+[; ;encher.c: 120:                 if (t2 == 0) {
+[e $ ! == _t2 -> 0 `i 16  ]
+{
+"121
+[; ;encher.c: 121:                     t1--;
+[e -- _t1 -> 1 `i ]
+"122
+[; ;encher.c: 122:                     t2 = 9;
+[e = _t2 -> 9 `i ]
 "123
-[; ;encher.c: 123:                 if (t2 == 0) {
-[e $ ! == _t2 -> 0 `i 15  ]
+[; ;encher.c: 123:                 } else {
+}
+[e $U 17  ]
+[e :U 16 ]
 {
 "124
-[; ;encher.c: 124:                     t1--;
-[e -- _t1 -> 1 `i ]
+[; ;encher.c: 124:                     t2--;
+[e -- _t2 -> 1 `i ]
 "125
-[; ;encher.c: 125:                     t2 = 9;
-[e = _t2 -> 9 `i ]
-"126
-[; ;encher.c: 126:                 } else {
+[; ;encher.c: 125:                 }
 }
-[e $U 16  ]
+[e :U 17 ]
+"126
+[; ;encher.c: 126:             } else {
+}
+[e $U 18  ]
 [e :U 15 ]
 {
 "127
-[; ;encher.c: 127:                     t2--;
-[e -- _t2 -> 1 `i ]
-"128
-[; ;encher.c: 128:                 }
-}
-[e :U 16 ]
-"129
-[; ;encher.c: 129:             } else {
-}
-[e $U 17  ]
-[e :U 14 ]
-{
-"130
-[; ;encher.c: 130:                 i++;
+[; ;encher.c: 127:                 i++;
 [e ++ _i -> 1 `i ]
-"131
-[; ;encher.c: 131:             }
+"128
+[; ;encher.c: 128:             }
 }
-[e :U 17 ]
-"132
-[; ;encher.c: 132:         }
+[e :U 18 ]
+"129
+[; ;encher.c: 129:         }
 }
 [e :U 11 ]
-"103
-[; ;encher.c: 103:         while ((t1 != 0) || (t2 != 0)) {
+"96
+[; ;encher.c: 96:         while ((t1 != 0) || (t2 != 0)) {
 [e $ || != _t1 -> 0 `i != _t2 -> 0 `i 12  ]
 [e :U 13 ]
-"133
-[; ;encher.c: 133:         pwmSet1(0);
+"130
+[; ;encher.c: 130:         pwmSet1(0);
 [e ( _pwmSet1 (1 -> -> 0 `i `uc ]
-"135
-[; ;encher.c: 135:         (((*(volatile __near unsigned char*)0xF82)) &= ~(1<<1));
-[e =& *U -> -> 3970 `i `*VNuc -> ~ << -> 1 `i -> 1 `i `uc ]
-"137
-[; ;encher.c: 137:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
+"133
+[; ;encher.c: 133:         (((*(volatile __near unsigned char*)0xF94)) |= (1<<1));
+[e =| *U -> -> 3988 `i `*VNuc -> << -> 1 `i -> 1 `i `uc ]
+"136
+[; ;encher.c: 136:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
 [e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 5 `i `uc ]
+"137
+[; ;encher.c: 137:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<4));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 4 `i `uc ]
 "140
 [; ;encher.c: 140:         lcd_cmd(0x01);
 [e ( _lcd_cmd (1 -> -> 1 `i `uc ]
@@ -345,51 +365,54 @@ Version 4.0 HI-TECH Software Intermediate Code
 "144
 [; ;encher.c: 144:         lcd_str("    0-Voltar");
 [e ( _lcd_str (1 :s 10C ]
-"152
-[; ;encher.c: 152:     }
+"145
+[; ;encher.c: 145:     }
 }
 [e :U 10 ]
-"161
-[; ;encher.c: 161:     unsigned int opt;
+"152
+[; ;encher.c: 152:     unsigned int opt;
 [v _opt `ui ~T0 @X0 1 a ]
-"163
-[; ;encher.c: 163:     (*(volatile __near unsigned char*)0xF93) = 0xF8;
+"154
+[; ;encher.c: 154:     (*(volatile __near unsigned char*)0xF93) = 0xF8;
 [e = *U -> -> 3987 `i `*VNuc -> -> 248 `i `uc ]
-"165
-[; ;encher.c: 165:     while (1) {
-[e :U 19 ]
-{
-"166
-[; ;encher.c: 166:         (*(volatile __near unsigned char*)0xF95) = 0x0F;
-[e = *U -> -> 3989 `i `*VNuc -> -> 15 `i `uc ]
-"167
-[; ;encher.c: 167:         tmp = tc_tecla(0) + 0x30;
-[e = _tmp -> + -> ( _tc_tecla (1 -> -> 0 `i `ui `i -> 48 `i `uc ]
-"168
-[; ;encher.c: 168:         (*(volatile __near unsigned char*)0xF95) = 0x00;
-[e = *U -> -> 3989 `i `*VNuc -> -> 0 `i `uc ]
-"169
-[; ;encher.c: 169:         opt = (tmp - '0');
-[e = _opt - -> _tmp `ui -> 48 `ui ]
-"170
-[; ;encher.c: 170:         if (opt == 0) {
-[e $ ! == _opt -> -> 0 `i `ui 21  ]
-{
-"171
-[; ;encher.c: 171:             break;
-[e $U 20  ]
-"172
-[; ;encher.c: 172:         }
-}
-[e :U 21 ]
-"173
-[; ;encher.c: 173:     }
-}
-[e :U 18 ]
-[e $U 19  ]
+"156
+[; ;encher.c: 156:     while (1) {
 [e :U 20 ]
-"175
-[; ;encher.c: 175: }
+{
+"157
+[; ;encher.c: 157:         (*(volatile __near unsigned char*)0xF95) = 0x0F;
+[e = *U -> -> 3989 `i `*VNuc -> -> 15 `i `uc ]
+"158
+[; ;encher.c: 158:         tmp = tc_tecla(0) + 0x30;
+[e = _tmp -> + -> ( _tc_tecla (1 -> -> 0 `i `ui `i -> 48 `i `uc ]
+"159
+[; ;encher.c: 159:         (*(volatile __near unsigned char*)0xF95) = 0x00;
+[e = *U -> -> 3989 `i `*VNuc -> -> 0 `i `uc ]
+"160
+[; ;encher.c: 160:         opt = (tmp - '0');
+[e = _opt - -> _tmp `ui -> 48 `ui ]
+"161
+[; ;encher.c: 161:         if (opt == 0) {
+[e $ ! == _opt -> -> 0 `i `ui 22  ]
+{
+"162
+[; ;encher.c: 162:             (((*(volatile __near unsigned char*)0xF94)) &= ~(1<<1));
+[e =& *U -> -> 3988 `i `*VNuc -> ~ << -> 1 `i -> 1 `i `uc ]
+"163
+[; ;encher.c: 163:             break;
+[e $U 21  ]
+"164
+[; ;encher.c: 164:         }
+}
+[e :U 22 ]
+"165
+[; ;encher.c: 165:     }
+}
+[e :U 19 ]
+[e $U 20  ]
+[e :U 21 ]
+"167
+[; ;encher.c: 167: }
 [e :UE 3 ]
 }
 [p f _sprintf 8462336 ]
