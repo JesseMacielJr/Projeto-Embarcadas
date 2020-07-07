@@ -24,22 +24,26 @@ void ver_quantidade(double *vol) {
         lcd_cmd(0x10);
     }
 
-    /*
-     * Falta:
-     * Adicionar o esquema dos Leds representarem o nível do tanque
-     */
-    
-    unsigned char tmp;
-
-    TRISB = 0xF8;
-
-    while (1) {
-        TRISD = 0x0F;
-        tmp = tc_tecla(0) + 0x30;
-        TRISD = 0x00;
-        if (tmp >= 0x3C) {
-            BitClr(TRISC, 1);
-            break;
-        }
+    TRISD = 0x00;
+    if (*vol == 0) {
+        PORTD = 0b00000000;
+    } else if (*vol > 0 && *vol <= 10) {
+        PORTD = 0b10000000;
+    } else if (*vol > 10 && *vol <= 20) {
+        PORTD = 0b11000000;
+    } else if (*vol > 20 && *vol <= 30) {
+        PORTD = 0b11100000;
+    } else if (*vol > 30 && *vol <= 40) {
+        PORTD = 0b11110000;
+    } else if (*vol >= 40 && *vol <= 50) {
+        PORTD = 0b11111100;
+    } else if (*vol > 50 && *vol <= 60) {
+        PORTD = 0b11111110;
+    } else if (*vol > 60 && *vol <= 70) {
+        PORTD = 0b11111111;
     }
+
+    while ((BitTst(PORTB, 3))) {
+    }
+
 }
