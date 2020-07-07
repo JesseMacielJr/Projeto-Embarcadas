@@ -7,9 +7,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17
 [; ;./lcd.h: 17: void lcd_str(const char* str);
 [v _lcd_str `(v ~T0 @X0 0 ef1`*Cuc ]
-"8 ./teclado.h
-[; ;./teclado.h: 8:     unsigned char tc_tecla(unsigned int timeout);
-[v _tc_tecla `(uc ~T0 @X0 0 ef1`ui ]
 "8 ver.c
 [; ;ver.c: 8: void ver_quantidade(double *vol) {
 [v _ver_quantidade `(v ~T0 @X0 1 ef1`*d ]
@@ -45,7 +42,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ver.c: 19:     lcd_cmd(0xC0);
 [e ( _lcd_cmd (1 -> -> 192 `i `uc ]
 "20
-[; ;ver.c: 20:     lcd_str("# - Voltar");
+[; ;ver.c: 20:     lcd_str(" RB3 - Voltar");
 [e ( _lcd_str (1 :s 4C ]
 "21
 [; ;ver.c: 21:     lcd_cmd(0xC0);
@@ -68,51 +65,116 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ < _i -> 7 `i 4  ]
 [e :U 5 ]
 }
+"27
+[; ;ver.c: 27:     (*(volatile __near unsigned char*)0xF95) = 0x00;
+[e = *U -> -> 3989 `i `*VNuc -> -> 0 `i `uc ]
+"28
+[; ;ver.c: 28:     if (*vol == 0) {
+[e $ ! == *U _vol -> -> 0 `i `d 7  ]
+{
+"29
+[; ;ver.c: 29:         (*(volatile __near unsigned char*)0xF83) = 0b00000000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 0 `i `uc ]
+"30
+[; ;ver.c: 30:     } else if (*vol > 0 && *vol <= 10) {
+}
+[e $U 8  ]
+[e :U 7 ]
+[e $ ! && > *U _vol -> -> 0 `i `d <= *U _vol -> -> 10 `i `d 9  ]
+{
+"31
+[; ;ver.c: 31:         (*(volatile __near unsigned char*)0xF83) = 0b10000000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 128 `i `uc ]
 "32
-[; ;ver.c: 32:     unsigned char tmp;
-[v _tmp `uc ~T0 @X0 1 a ]
+[; ;ver.c: 32:     } else if (*vol > 10 && *vol <= 20) {
+}
+[e $U 10  ]
+[e :U 9 ]
+[e $ ! && > *U _vol -> -> 10 `i `d <= *U _vol -> -> 20 `i `d 11  ]
+{
+"33
+[; ;ver.c: 33:         (*(volatile __near unsigned char*)0xF83) = 0b11000000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 192 `i `uc ]
 "34
-[; ;ver.c: 34:     (*(volatile __near unsigned char*)0xF93) = 0xF8;
-[e = *U -> -> 3987 `i `*VNuc -> -> 248 `i `uc ]
+[; ;ver.c: 34:     } else if (*vol > 20 && *vol <= 30) {
+}
+[e $U 12  ]
+[e :U 11 ]
+[e $ ! && > *U _vol -> -> 20 `i `d <= *U _vol -> -> 30 `i `d 13  ]
+{
+"35
+[; ;ver.c: 35:         (*(volatile __near unsigned char*)0xF83) = 0b11100000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 224 `i `uc ]
 "36
-[; ;ver.c: 36:     while (1) {
-[e :U 8 ]
+[; ;ver.c: 36:     } else if (*vol > 30 && *vol <= 40) {
+}
+[e $U 14  ]
+[e :U 13 ]
+[e $ ! && > *U _vol -> -> 30 `i `d <= *U _vol -> -> 40 `i `d 15  ]
 {
 "37
-[; ;ver.c: 37:         (*(volatile __near unsigned char*)0xF95) = 0x0F;
-[e = *U -> -> 3989 `i `*VNuc -> -> 15 `i `uc ]
+[; ;ver.c: 37:         (*(volatile __near unsigned char*)0xF83) = 0b11110000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 240 `i `uc ]
 "38
-[; ;ver.c: 38:         tmp = tc_tecla(0) + 0x30;
-[e = _tmp -> + -> ( _tc_tecla (1 -> -> 0 `i `ui `i -> 48 `i `uc ]
+[; ;ver.c: 38:     } else if (*vol >= 40 && *vol <= 50) {
+}
+[e $U 16  ]
+[e :U 15 ]
+[e $ ! && >= *U _vol -> -> 40 `i `d <= *U _vol -> -> 50 `i `d 17  ]
+{
 "39
-[; ;ver.c: 39:         (*(volatile __near unsigned char*)0xF95) = 0x00;
-[e = *U -> -> 3989 `i `*VNuc -> -> 0 `i `uc ]
+[; ;ver.c: 39:         (*(volatile __near unsigned char*)0xF83) = 0b11111100;
+[e = *U -> -> 3971 `i `*VNuc -> -> 252 `i `uc ]
 "40
-[; ;ver.c: 40:         if (tmp >= 0x3C) {
-[e $ ! >= -> _tmp `i -> 60 `i 10  ]
+[; ;ver.c: 40:     } else if (*vol > 50 && *vol <= 60) {
+}
+[e $U 18  ]
+[e :U 17 ]
+[e $ ! && > *U _vol -> -> 50 `i `d <= *U _vol -> -> 60 `i `d 19  ]
 {
 "41
-[; ;ver.c: 41:             (((*(volatile __near unsigned char*)0xF94)) &= ~(1<<1));
-[e =& *U -> -> 3988 `i `*VNuc -> ~ << -> 1 `i -> 1 `i `uc ]
+[; ;ver.c: 41:         (*(volatile __near unsigned char*)0xF83) = 0b11111110;
+[e = *U -> -> 3971 `i `*VNuc -> -> 254 `i `uc ]
 "42
-[; ;ver.c: 42:             break;
-[e $U 9  ]
-"43
-[; ;ver.c: 43:         }
+[; ;ver.c: 42:     } else if (*vol > 60 && *vol <= 70) {
 }
-[e :U 10 ]
+[e $U 20  ]
+[e :U 19 ]
+[e $ ! && > *U _vol -> -> 60 `i `d <= *U _vol -> -> 70 `i `d 21  ]
+{
+"43
+[; ;ver.c: 43:         (*(volatile __near unsigned char*)0xF83) = 0b11111111;
+[e = *U -> -> 3971 `i `*VNuc -> -> 255 `i `uc ]
 "44
 [; ;ver.c: 44:     }
 }
-[e :U 7 ]
-[e $U 8  ]
-[e :U 9 ]
-"45
-[; ;ver.c: 45: }
+[e :U 21 ]
+[e :U 20 ]
+[e :U 18 ]
+[e :U 16 ]
+[e :U 14 ]
+[e :U 12 ]
+[e :U 10 ]
+[e :U 8 ]
+"46
+[; ;ver.c: 46:     while (((((*(volatile __near unsigned char*)0xF81)) & (1<<3)))) {
+[e $U 22  ]
+[e :U 23 ]
+{
+"47
+[; ;ver.c: 47:     }
+}
+[e :U 22 ]
+"46
+[; ;ver.c: 46:     while (((((*(volatile __near unsigned char*)0xF81)) & (1<<3)))) {
+[e $ != & -> *U -> -> 3969 `i `*VNuc `i << -> 1 `i -> 3 `i -> 0 `i 23  ]
+[e :U 24 ]
+"49
+[; ;ver.c: 49: }
 [e :UE 3 ]
 }
 [p f _sprintf 8462336 ]
-[a 4C 35 32 45 32 86 111 108 116 97 114 0 ]
+[a 4C 32 82 66 51 32 45 32 86 111 108 116 97 114 0 ]
 [a 1C 37 46 49 102 0 ]
 [a 3C 32 76 0 ]
 [a 2C 65 116 117 97 108 58 32 0 ]
