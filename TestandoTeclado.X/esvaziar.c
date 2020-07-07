@@ -8,12 +8,12 @@
 
 void esvaziar_tanque(double *vol) {
 
-    //Mensagem inicial da função
+    //Mensagem inicial da funÃ§Ã£o
     lcd_cmd(L_CLR);
     lcd_cmd(L_L1);
     lcd_str("Quant(L): ");
     lcd_cmd(L_L2);
-    lcd_str("# - Voltar");
+    lcd_str(" RB3 - Voltar");
     lcd_cmd(L_L1+10);
 
     unsigned int decremento;
@@ -54,7 +54,7 @@ void esvaziar_tanque(double *vol) {
         lcd_cmd(L_L1);
         lcd_str("ERRO: vol < 0");
         lcd_cmd(L_L2);
-        lcd_str("# - Voltar");
+        lcd_str(" RB3 - Voltar");
 
         /* BUZZER */
         BitSet(TRISC, 1);
@@ -69,7 +69,7 @@ void esvaziar_tanque(double *vol) {
         lcd_str(" L");
         atraso_ms(500);
 
-        ////////////OPERAÇÃO//////////////
+        ////////////OPERAÃ‡ÃƒO//////////////
         unsigned int i = 0, potencia = 100, t1, t2, tempo = decremento / 2;
         float porcento;
         unsigned int numeros[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D,
@@ -85,7 +85,7 @@ void esvaziar_tanque(double *vol) {
 
         pwmInit();
 
-        //Timer para finalização
+        //Timer para finalizaÃ§Ã£o
         t1 = tempo / 10;
         t2 = tempo % 10;
         while ((t1 != 0) || (t2 != 0)) {
@@ -131,29 +131,34 @@ void esvaziar_tanque(double *vol) {
         BitClr(PORTA, 5);
         BitClr(PORTA, 4);
 
-        //Mensagem êxito
+        //Mensagem Ãªxito
         lcd_cmd(L_CLR);
         lcd_cmd(L_L1);
         lcd_str("    SUCESSO!");
         lcd_cmd(L_L2);
-        lcd_str("   # - Voltar");
+        lcd_str(" RB3 - Voltar");
+    } 
+
+    TRISD = 0x00;
+    if (*vol == 0) {
+        PORTD = 0b00000000;
+    } else if (*vol > 0 && *vol <= 10) {
+        PORTD = 0b10000000;
+    } else if (*vol > 10 && *vol <= 20) {
+        PORTD = 0b11000000;
+    } else if (*vol > 20 && *vol <= 30) {
+        PORTD = 0b11100000;
+    } else if (*vol > 30 && *vol <= 40) {
+        PORTD = 0b11110000;
+    } else if (*vol >= 40 && *vol <= 50) {
+        PORTD = 0b11111100;
+    } else if (*vol > 50 && *vol <= 60) {
+        PORTD = 0b11111110;
+    } else if (*vol > 60 && *vol <= 70) {
+        PORTD = 0b11111111;
     }
 
-    /*
-     * Falta:
-     * Adicionar o esquema dos Leds representarem o nível do tanque
-     */
-
-    TRISB = 0xF8;
-
-    while (1) {
-        TRISD = 0x0F;
-        tmp = tc_tecla(0) + 0x30;
-        TRISD = 0x00;
-        if (tmp >= 0x3C) {
-            BitClr(TRISC, 1);
-            break;
-        }
+    while ((BitTst(PORTB, 3))) {
     }
-    
+
 }
