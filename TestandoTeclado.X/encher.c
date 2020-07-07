@@ -17,7 +17,6 @@ void encher_tanque(double *vol) {
     lcd_cmd(L_L1 + 10);
     
     unsigned int incremento;
-
     unsigned int i = 0;
     unsigned int num[2];
     unsigned char tmp;
@@ -41,10 +40,8 @@ void encher_tanque(double *vol) {
 
     TRISA = 0x20;
     TRISB = 0x3F;
-
     atraso_ms(500);
     lcd_cmd(L_CLR);
-
     incremento = num[0] + num[1];
 
     if (*vol + incremento > 70) {
