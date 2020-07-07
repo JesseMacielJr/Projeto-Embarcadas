@@ -160,5 +160,5 @@ void encher_tanque(double *vol) {
     }
     
     //Desliga o buzzer
-    BitSet(TRISC, 1);
+    BitClr(TRISC, 1);
 }

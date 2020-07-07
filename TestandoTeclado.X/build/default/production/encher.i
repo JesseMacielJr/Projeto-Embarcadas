@@ -365,5 +365,5 @@ void encher_tanque(double *vol) {
     }
 
 
-    (((*(volatile __near unsigned char*)0xF94)) |= (1<<1));
+    (((*(volatile __near unsigned char*)0xF94)) &= ~(1<<1));
 }

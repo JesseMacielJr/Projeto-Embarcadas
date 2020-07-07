@@ -478,8 +478,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ != & -> *U -> -> 3969 `i `*VNuc `i << -> 1 `i -> 3 `i -> 0 `i 37  ]
 [e :U 38 ]
 "165
-[; ;esvaziar.c: 165:     (((*(volatile __near unsigned char*)0xF94)) |= (1<<1));
-[e =| *U -> -> 3988 `i `*VNuc -> << -> 1 `i -> 1 `i `uc ]
+[; ;esvaziar.c: 165:     (((*(volatile __near unsigned char*)0xF94)) &= ~(1<<1));
+[e =& *U -> -> 3988 `i `*VNuc -> ~ << -> 1 `i -> 1 `i `uc ]
 "167
 [; ;esvaziar.c: 167: }
 [e :UE 3 ]

@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Tue Jul 07 10:10:17 2020
+                                                                                               Tue Jul 07 10:16:04 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	18F4520
@@ -3459,8 +3459,8 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3439  002466  EF2E  F012         	goto	l237
   3440  00246A                     u6730:
   3441  00246A                     
-  3442                           ;esvaziar.c: 165:     (((*(volatile __near unsigned char*)0xF94)) |= (1<<1));
-  3443  00246A  8294               	bsf	148,1,c	;volatile
+  3442                           ;esvaziar.c: 165:     (((*(volatile __near unsigned char*)0xF94)) &= ~(1<<1));
+  3443  00246A  9294               	bcf	148,1,c	;volatile
   3444  00246C                     l205:
   3445  00246C  0012               	return		;funcret
   3446  00246E                     __end_of_esvaziar_tanque:
@@ -4640,8 +4640,8 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   4616  001B98  EFC7  F00D         	goto	l181
   4617  001B9C                     u6470:
   4618  001B9C                     
-  4619                           ;encher.c: 163:     (((*(volatile __near unsigned char*)0xF94)) |= (1<<1));
-  4620  001B9C  8294               	bsf	148,1,c	;volatile
+  4619                           ;encher.c: 163:     (((*(volatile __near unsigned char*)0xF94)) &= ~(1<<1));
+  4620  001B9C  9294               	bcf	148,1,c	;volatile
   4621  001B9E                     l149:
   4622  001B9E  0012               	return		;funcret
   4623  001BA0                     __end_of_encher_tanque:
@@ -13803,7 +13803,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Tue Jul 07 10:10:17 2020
+Symbol Table                                                                                   Tue Jul 07 10:16:04 2020
 
              ___fldiv@aexp 0050  esvaziar_tanque@decremento 0180               ___fldiv@bexp 004F  
                         _i 00F1               ___fldiv@sign 0048                         l60 3C22  
