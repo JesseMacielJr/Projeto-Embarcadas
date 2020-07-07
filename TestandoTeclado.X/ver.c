@@ -17,7 +17,7 @@ void ver_quantidade(double *vol) {
     lcd_str(y);
     lcd_str(" L");
     lcd_cmd(L_L2);
-    lcd_str("# - Voltar");
+    lcd_str(" RB3 - Voltar");
     lcd_cmd(L_L2);
 
     for (i = 0; i < 7; i++) {
