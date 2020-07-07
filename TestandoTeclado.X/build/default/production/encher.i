@@ -218,11 +218,10 @@ void encher_tanque(double *vol) {
     lcd_cmd(0x80);
     lcd_str("Quant(L): ");
     lcd_cmd(0xC0);
-    lcd_str("# - Voltar");
+    lcd_str("  # - Voltar");
     lcd_cmd(0x80 + 10);
 
     unsigned int incremento;
-
     unsigned int i = 0;
     unsigned int num[2];
     unsigned char tmp;
@@ -249,7 +248,6 @@ void encher_tanque(double *vol) {
 
     atraso_ms(500);
     lcd_cmd(0x01);
-
     incremento = num[0] + num[1];
 
     if (*vol + incremento > 70) {
@@ -259,7 +257,7 @@ void encher_tanque(double *vol) {
         lcd_cmd(0x80);
         lcd_str("ERRO: vol > MAX");
         lcd_cmd(0xC0);
-        lcd_str("# - Voltar");
+        lcd_str(" RB3 - Voltar");
 
 
         (((*(volatile __near unsigned char*)0xF94)) |= (1<<1));
@@ -341,24 +339,31 @@ void encher_tanque(double *vol) {
         lcd_cmd(0x80);
         lcd_str("    SUCESSO!");
         lcd_cmd(0xC0);
-        lcd_str("   # - Voltar");
+        lcd_str(" RB3 - Voltar");
+    }
+
+    (*(volatile __near unsigned char*)0xF95) = 0x00;
+    if (*vol == 0) {
+        (*(volatile __near unsigned char*)0xF83) = 0b00000000;
+    } else if (*vol > 0 && *vol <= 10) {
+        (*(volatile __near unsigned char*)0xF83) = 0b10000000;
+    } else if (*vol > 10 && *vol <= 20) {
+        (*(volatile __near unsigned char*)0xF83) = 0b11000000;
+    } else if (*vol > 20 && *vol <= 30) {
+        (*(volatile __near unsigned char*)0xF83) = 0b11100000;
+    } else if (*vol > 30 && *vol <= 40) {
+        (*(volatile __near unsigned char*)0xF83) = 0b11110000;
+    } else if (*vol >= 40 && *vol <= 50) {
+        (*(volatile __near unsigned char*)0xF83) = 0b11111100;
+    } else if (*vol > 50 && *vol <= 60) {
+        (*(volatile __near unsigned char*)0xF83) = 0b11111110;
+    } else if (*vol > 60 && *vol <= 70) {
+        (*(volatile __near unsigned char*)0xF83) = 0b11111111;
+    }
+
+    while (((((*(volatile __near unsigned char*)0xF81)) & (1<<3)))) {
     }
 
 
-
-
-
-
-    (*(volatile __near unsigned char*)0xF93) = 0xF8;
-
-    while (1) {
-        (*(volatile __near unsigned char*)0xF95) = 0x0F;
-        tmp = tc_tecla(0) + 0x30;
-        (*(volatile __near unsigned char*)0xF95) = 0x00;
-        if (tmp >= 0x3C) {
-            (((*(volatile __near unsigned char*)0xF94)) &= ~(1<<1));
-            break;
-        }
-    }
-
+    (((*(volatile __near unsigned char*)0xF94)) |= (1<<1));
 }

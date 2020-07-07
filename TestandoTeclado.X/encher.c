@@ -13,7 +13,7 @@ void encher_tanque(double *vol) {
     lcd_cmd(L_L1);
     lcd_str("Quant(L): ");
     lcd_cmd(L_L2);
-    lcd_str(" RB3 - Voltar");
+    lcd_str("  # - Voltar");
     lcd_cmd(L_L1 + 10);
     
     unsigned int incremento;
@@ -158,5 +158,7 @@ void encher_tanque(double *vol) {
 
     while ((BitTst(PORTB, 3))) {
     }
-
+    
+    //Desliga o buzzer
+    BitSet(TRISC, 1);
 }
